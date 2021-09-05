@@ -292,7 +292,7 @@
 // EXPLANATION
 /datum/objective/bloodsucker/kindred/update_explanation_text()
 	. = ..()
-	explanation_text = "Ensure Tremere steals and keeps control over the Archive of the Kindred."
+	explanation_text = "Ensure Nosferatu steals and keeps control over the Archive of the Kindred."
 
 // WIN CONDITIONS?
 /datum/objective/bloodsucker/kindred/check_completion()
