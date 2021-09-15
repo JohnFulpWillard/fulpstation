@@ -47219,7 +47219,6 @@
 "cif" = (
 /obj/structure/rack,
 /obj/item/stock_parts/cell,
-/obj/item/stock_parts/cell,
 /obj/effect/turf_decal/siding/brown{
 	dir = 9
 	},
@@ -48442,6 +48441,7 @@
 	dir = 8
 	},
 /obj/machinery/light/directional/west,
+/obj/item/stock_parts/cell,
 /turf/open/floor/iron,
 /area/cargo/warehouse)
 "ckM" = (
@@ -57021,6 +57021,9 @@
 "cEn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
+	dir = 6
+	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cEo" = (
@@ -57241,11 +57244,13 @@
 "cEO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/effect/turf_decal/siding/yellow{
 	color = "#FFD700";
 	dir = 4;
 	name = "engineering yellow"
+	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
@@ -57454,8 +57459,9 @@
 "cFu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
-	dir = 6
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	name = "Incinerator to Output"
 	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
@@ -57692,9 +57698,6 @@
 	dir = 4;
 	name = "engineering yellow"
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
-	dir = 9
-	},
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
@@ -57905,27 +57908,35 @@
 	dir = 8;
 	name = "engineering yellow"
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 6
+	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cGz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cGA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/brown/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/brown/visible,
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cGB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 1;
-	name = "Incinerator to Output"
+/obj/machinery/atmospherics/components/trinary/filter{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
@@ -58229,6 +58240,9 @@
 	color = "#FFD700";
 	dir = 4;
 	name = "engineering yellow"
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/brown/visible{
+	dir = 10
 	},
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
@@ -58764,14 +58778,12 @@
 	dir = 1;
 	id = "incineratorturbine"
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 6
-	},
 /obj/effect/turf_decal/siding/yellow{
 	color = "#FFD700";
 	dir = 10;
 	name = "engineering yellow"
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cHQ" = (
@@ -58782,9 +58794,6 @@
 /obj/machinery/computer/security/telescreen/turbine{
 	dir = 1;
 	pixel_y = -30
-	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
-	dir = 4
 	},
 /obj/effect/turf_decal/siding/yellow{
 	color = "#FFD700";
@@ -58806,14 +58815,11 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/yellow{
 	color = "#FFD700";
 	name = "engineering yellow"
 	},
-/obj/machinery/atmospherics/pipe/bridge_pipe/brown/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/brown/visible,
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cHS" = (
@@ -58823,9 +58829,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/trinary/filter{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/yellow{
 	color = "#FFD700";
 	name = "engineering yellow"
@@ -59548,9 +59551,7 @@
 	dir = 6;
 	name = "engineering yellow"
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/brown/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/brown/visible,
 /turf/open/floor/iron,
 /area/maintenance/disposal/incinerator)
 "cJD" = (
