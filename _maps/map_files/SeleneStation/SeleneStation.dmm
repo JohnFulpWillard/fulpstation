@@ -910,6 +910,7 @@
 	dir = 1;
 	name = "Security red corner"
 	},
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron,
 /area/security/office)
 "ane" = (
@@ -2364,7 +2365,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
-	id = "bridge blast2";
+	id = "bridge blast3";
 	name = "bridge blast door"
 	},
 /turf/open/floor/plating,
@@ -8591,6 +8592,13 @@
 	id = "bridge blast2";
 	name = "Bridge Blast Door Control";
 	pixel_x = 7;
+	req_access_txt = "19"
+	},
+/obj/machinery/button/door/directional/south{
+	id = "bridge blast3";
+	name = "Bridge Blast Door Control";
+	pixel_x = 7;
+	pixel_y = -36;
 	req_access_txt = "19"
 	},
 /turf/open/floor/vault,
@@ -22364,11 +22372,13 @@
 /turf/open/floor/iron/white,
 /area/commons/fitness)
 "fTA" = (
-/obj/structure/disposalpipe/segment{
-	dir = 5
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
 	},
-/turf/closed/wall,
-/area/maintenance/department/cargo)
+/turf/open/floor/iron,
+/area/hallway/primary/aft)
 "fTH" = (
 /obj/effect/turf_decal/tile/purple{
 	color = "#4D0067";
@@ -26016,6 +26026,9 @@
 	color = "#73c2fb";
 	name = "Medical blue corner"
 	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/hallway/primary/central)
 "gTb" = (
@@ -26777,6 +26790,7 @@
 	name = "Security red corner"
 	},
 /obj/machinery/light/directional/east,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron,
 /area/security/office)
 "hdG" = (
@@ -30406,8 +30420,8 @@
 /turf/open/floor/iron,
 /area/commons/fitness)
 "ibf" = (
-/turf/closed/wall/r_wall,
-/area/maintenance/department/science)
+/turf/closed/wall,
+/area/engineering/gravity_generator)
 "ibG" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
@@ -33894,18 +33908,8 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/aisat_interior)
 "iWX" = (
-/obj/effect/turf_decal/tile/red{
-	color = "#FF0000";
-	name = "Security red corner"
-	},
-/obj/effect/turf_decal/tile/red{
-	color = "#FF0000";
-	dir = 4;
-	name = "Security red corner"
-	},
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron,
-/area/security/office)
+/turf/closed/wall/r_wall,
+/area/security/range)
 "iXn" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 6
@@ -34197,8 +34201,9 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "jba" = (
+/obj/structure/lattice,
 /turf/closed/wall/r_wall,
-/area/maintenance/department/engine)
+/area/security/range)
 "jbe" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -34515,6 +34520,7 @@
 	dir = 1;
 	name = "Security red corner"
 	},
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron,
 /area/security/office)
 "jfS" = (
@@ -37664,9 +37670,12 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "jTI" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
-/turf/open/floor/plating,
-/area/maintenance/department/engine)
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/target/syndicate,
+/turf/open/floor/iron/dark,
+/area/security/range)
 "jTN" = (
 /obj/machinery/atmospherics/components/tank/air{
 	dir = 4
@@ -38985,6 +38994,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"klt" = (
+/obj/item/target/syndicate,
+/turf/open/floor/iron/dark,
+/area/security/range)
 "klv" = (
 /obj/effect/turf_decal/tile/yellow{
 	color = "#FFD700";
@@ -41745,6 +41758,12 @@
 	},
 /turf/open/floor/iron/white,
 /area/medical/virology)
+"kWj" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/security/range)
 "kWm" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4,
 /obj/effect/turf_decal/tile/purple{
@@ -42641,18 +42660,8 @@
 /turf/open/floor/plating,
 /area/maintenance/department/engine/atmos)
 "lhN" = (
-/obj/machinery/airalarm/directional/east,
-/obj/effect/turf_decal/tile/red{
-	color = "#FF0000";
-	name = "Security red corner"
-	},
-/obj/effect/turf_decal/tile/red{
-	color = "#FF0000";
-	dir = 4;
-	name = "Security red corner"
-	},
-/turf/open/floor/iron,
-/area/security/office)
+/turf/open/floor/iron/dark,
+/area/security/range)
 "lhQ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -42825,6 +42834,13 @@
 /obj/structure/chair/stool/directional/north,
 /turf/open/floor/wood,
 /area/service/library/printer)
+"ljQ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/dark,
+/area/security/range)
 "ljT" = (
 /obj/machinery/door/airlock/command{
 	name = "Gateway Access";
@@ -49571,7 +49587,7 @@
 "mRl" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
-	id = "bridge blast2";
+	id = "bridge blast3";
 	name = "bridge blast door"
 	},
 /turf/open/floor/plating,
@@ -57442,6 +57458,10 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
+"oYh" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/iron/dark,
+/area/security/range)
 "oYH" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 8
@@ -59898,7 +59918,13 @@
 	dir = 4;
 	name = "Security red corner"
 	},
-/obj/machinery/light_switch/directional/east,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/security/office)
 "pFZ" = (
@@ -60319,9 +60345,17 @@
 /obj/machinery/telecomms/processor/preset_two,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
+"pMh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/closed/wall,
+/area/maintenance/department/cargo)
 "pMq" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/tile/red{
 	color = "#FF0000";
+	dir = 1;
 	name = "Security red corner"
 	},
 /obj/effect/turf_decal/tile/red{
@@ -60329,11 +60363,18 @@
 	dir = 4;
 	name = "Security red corner"
 	},
-/obj/structure/sign/poster/official/safety_report{
-	pixel_x = 32
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 8;
+	name = "Security red corner"
+	},
+/obj/machinery/door/window/eastleft{
+	dir = 8;
+	name = "practice range";
+	req_access_txt = "1"
 	},
 /turf/open/floor/iron,
-/area/security/office)
+/area/security/range)
 "pMt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -61382,6 +61423,25 @@
 /obj/machinery/door/poddoor/incinerator_atmos_aux,
 /turf/open/space/basic,
 /area/maintenance/disposal/incinerator)
+"pZn" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 4;
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 1;
+	name = "Security red corner"
+	},
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/iron,
+/area/security/range)
 "pZG" = (
 /obj/effect/spawner/lootdrop/maint_drugs,
 /turf/open/floor/plating,
@@ -64849,6 +64909,16 @@
 	},
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
+"qVb" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/security/office)
 "qVi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -64987,6 +65057,37 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/department/science)
+"qWo" = (
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 1;
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 8;
+	name = "Security red corner"
+	},
+/obj/structure/table,
+/obj/item/clothing/ears/earmuffs{
+	pixel_y = 7
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/security/range)
 "qWw" = (
 /obj/effect/turf_decal/caution/stand_clear,
 /obj/structure/sign/warning/radiation{
@@ -65296,6 +65397,41 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/aft)
+"raw" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 4;
+	name = "Security red corner"
+	},
+/obj/effect/turf_decal/tile/red{
+	color = "#FF0000";
+	dir = 8;
+	name = "Security red corner"
+	},
+/obj/structure/rack,
+/obj/item/gun/energy/laser/practice{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/gun/energy/laser/practice{
+	pixel_x = 2;
+	pixel_y = 1
+	},
+/obj/item/gun/energy/laser/practice{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/east,
+/turf/open/floor/iron,
+/area/security/range)
 "raJ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -65984,6 +66120,9 @@
 	name = "Security red corner"
 	},
 /obj/machinery/light/directional/east,
+/obj/structure/sign/poster/official/safety_report{
+	pixel_x = 32
+	},
 /turf/open/floor/iron,
 /area/security/office)
 "rij" = (
@@ -74257,6 +74396,9 @@
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/hallway/primary/central)
 "trg" = (
@@ -78256,6 +78398,9 @@
 /obj/item/flashlight/lamp,
 /turf/open/floor/iron/grimy,
 /area/service/chapel/office)
+"utO" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/department/science)
 "utT" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 10
@@ -78959,6 +79104,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/hallway/primary/central)
 "uDL" = (
@@ -83901,6 +84049,9 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"vVh" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/department/engine)
 "vVG" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -84689,19 +84840,9 @@
 /turf/open/floor/iron/dark,
 /area/security/warden)
 "wjz" = (
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/hallway/primary/central)
+/obj/effect/spawner/structure/window/plasma/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/department/engine)
 "wjC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -115784,7 +115925,7 @@ efp
 fSU
 kjN
 kCi
-fTA
+pMh
 sEj
 sEj
 jFZ
@@ -121235,9 +121376,9 @@ tSo
 pGW
 asT
 swb
-jba
-jba
-jTI
+vVh
+vVh
+wjz
 ouh
 ouh
 kOC
@@ -121422,7 +121563,7 @@ lvb
 uvl
 gOz
 uvl
-hZX
+uvl
 rPb
 tqZ
 kpy
@@ -121482,17 +121623,17 @@ rAB
 xiq
 qyh
 gKe
-jba
-jba
-jba
-jba
-jba
-jba
+vVh
+vVh
+vVh
+vVh
+vVh
+vVh
 bfY
 qHb
 wxh
 jhU
-jba
+vVh
 gKe
 gKe
 iQW
@@ -121744,12 +121885,12 @@ pkQ
 sdd
 sdd
 uCP
-jba
-jba
-jba
-jba
-jba
-jba
+vVh
+vVh
+vVh
+vVh
+vVh
+vVh
 hKv
 gKe
 iQW
@@ -123024,11 +123165,11 @@ wHs
 fQh
 hLP
 mlj
-jba
-jba
-jba
-jba
-jba
+vVh
+vVh
+vVh
+vVh
+vVh
 gKe
 dIb
 hQd
@@ -127600,9 +127741,9 @@ uQL
 cSW
 xAK
 xAK
-xAK
-xAK
-xAK
+ibf
+ibf
+ibf
 laO
 uhW
 uhW
@@ -128856,7 +128997,7 @@ ycg
 wCv
 ycg
 ycg
-wjz
+qkk
 jJc
 kLT
 fro
@@ -129920,7 +130061,7 @@ gIl
 oRz
 qzs
 vFb
-hqN
+qVb
 nuV
 pkF
 bYw
@@ -130177,7 +130318,7 @@ hYQ
 hYQ
 hYQ
 hYQ
-vey
+wtY
 maS
 vey
 vey
@@ -130430,10 +130571,10 @@ yju
 laO
 jfL
 rih
-iWX
-pMq
 fGZ
-lhN
+fGZ
+fGZ
+fGZ
 pFT
 hdv
 eaW
@@ -130686,13 +130827,13 @@ cmy
 yju
 laO
 laO
-laO
-laO
-laO
-laO
-laO
-laO
-laO
+iWX
+jTI
+kWj
+ljQ
+pMq
+qWo
+iWX
 laO
 laO
 laO
@@ -130943,13 +131084,13 @@ cmy
 yju
 yju
 yju
-yju
-yju
-yju
-yju
-yju
-yju
-yju
+jba
+klt
+lhN
+oYh
+pZn
+raw
+jba
 yju
 yju
 yju
@@ -131200,13 +131341,13 @@ xEU
 xiS
 xiS
 xiS
-xiS
-xiS
-xiS
-xiS
-xiS
-xiS
-xiS
+iWX
+iWX
+iWX
+iWX
+iWX
+iWX
+iWX
 xiS
 xiS
 xiS
@@ -131967,7 +132108,7 @@ wJu
 hhm
 vGb
 ctx
-jER
+fTA
 jER
 djG
 aRX
@@ -133286,9 +133427,9 @@ icC
 cME
 cbW
 scz
-ibf
-ibf
-ibf
+utO
+utO
+utO
 wQv
 wQv
 wQv
@@ -134057,9 +134198,9 @@ mbf
 mbf
 vUg
 mbf
-ibf
-ibf
-ibf
+utO
+utO
+utO
 wQv
 wQv
 wQv
@@ -134316,7 +134457,7 @@ jDS
 mbf
 umL
 hDV
-ibf
+utO
 vpX
 udz
 cUY
@@ -134573,7 +134714,7 @@ kFT
 mcq
 dey
 pkK
-ibf
+utO
 jqC
 jQO
 dPj
@@ -134830,7 +134971,7 @@ dvl
 mbf
 vpq
 kzJ
-ibf
+utO
 grN
 pob
 edQ
@@ -135087,7 +135228,7 @@ wNk
 nqa
 wNk
 nqa
-ibf
+utO
 uwM
 fwI
 xzm
@@ -135344,8 +135485,8 @@ jUv
 hkz
 ukg
 qJv
-ibf
-ibf
+utO
+utO
 pGf
 qdV
 kSr
@@ -135602,7 +135743,7 @@ ekJ
 qql
 nOc
 nmW
-ibf
+utO
 jrN
 lSB
 wRe
@@ -135859,7 +136000,7 @@ nJt
 vSW
 uEh
 giU
-ibf
+utO
 pzu
 hBM
 aVw
@@ -136116,7 +136257,7 @@ qkd
 dIa
 nBW
 pUF
-ibf
+utO
 tCW
 oLR
 aIw
@@ -136372,8 +136513,8 @@ wtM
 kRx
 wTZ
 vPO
-ibf
-ibf
+utO
+utO
 wQv
 wQv
 wQv
@@ -136624,12 +136765,12 @@ pwf
 kPV
 qZP
 nqa
-ibf
-ibf
-ibf
-ibf
-ibf
-ibf
+utO
+utO
+utO
+utO
+utO
+utO
 tyj
 rxh
 qQE
@@ -137395,16 +137536,16 @@ pwf
 rGW
 qZP
 mTu
-ibf
-ibf
-ibf
-ibf
-ibf
-ibf
+utO
+utO
+utO
+utO
+utO
+utO
 mhi
 mhi
 mhi
-ibf
+utO
 aYH
 rKN
 rNK
@@ -137661,7 +137802,7 @@ lxJ
 yju
 yju
 yju
-ibf
+utO
 rxh
 vGu
 wQv
@@ -137918,7 +138059,7 @@ pPY
 aCG
 aCG
 aCG
-ibf
+utO
 gAH
 vGu
 wQv
@@ -138175,7 +138316,7 @@ vQN
 cfr
 aCt
 cfr
-ibf
+utO
 tNo
 rKN
 wQv
@@ -138432,7 +138573,7 @@ tmO
 vxo
 wdz
 lOe
-ibf
+utO
 oxq
 vGu
 wQv
@@ -138689,7 +138830,7 @@ tmO
 lQS
 qrz
 lQS
-ibf
+utO
 hlA
 rKN
 wQv
@@ -139203,15 +139344,15 @@ tmO
 lQS
 hQD
 lQS
-ibf
-ibf
+utO
+utO
 wPR
-ibf
-ibf
-ibf
-ibf
-ibf
-ibf
+utO
+utO
+utO
+utO
+utO
+utO
 yju
 yju
 yju
