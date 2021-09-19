@@ -6,7 +6,7 @@
 
 /datum/species/beefman
 	name = "Beefman"
-	id = "beefman"
+	id = SPECIES_BEEFMAN
 	limbs_id = "beefman"
 	say_mod = "gurgles"
 	sexes = FALSE
@@ -19,9 +19,11 @@
 		TRAIT_EASYDISMEMBER,
 		TRAIT_SLEEPIMMUNE,
 	)
-	offset_features = list(OFFSET_UNIFORM = list(0,2), OFFSET_ID = list(0,2), OFFSET_GLOVES = list(0,-4), OFFSET_GLASSES = list(0,3), OFFSET_EARS = list(0,3), OFFSET_SHOES = list(0,0), \
-						   OFFSET_S_STORE = list(0,2), OFFSET_FACEMASK = list(0,3), OFFSET_HEAD = list(0,3), OFFSET_FACE = list(0,3), OFFSET_BELT = list(0,3), OFFSET_BACK = list(0,2), \
-						   OFFSET_SUIT = list(0,2), OFFSET_NECK = list(0,3))
+	offset_features = list(
+		OFFSET_UNIFORM = list(0,2), OFFSET_ID = list(0,2), OFFSET_GLOVES = list(0,-4), OFFSET_GLASSES = list(0,3), OFFSET_EARS = list(0,3), OFFSET_SHOES = list(0,0), \
+		OFFSET_S_STORE = list(0,2), OFFSET_FACEMASK = list(0,3), OFFSET_HEAD = list(0,3), OFFSET_FACE = list(0,3), OFFSET_BELT = list(0,3), OFFSET_BACK = list(0,2), \
+		OFFSET_SUIT = list(0,2), OFFSET_NECK = list(0,3),
+	)
 
 	skinned_type = /obj/item/food/meatball // NO SKIN //  /obj/item/stack/sheet/animalhide/human
 	meat = /obj/item/food/meat/slab //What the species drops on gibbing
@@ -101,7 +103,6 @@
 
 	// Be Spooked but Educated
 	if (SStraumas.phobia_types && SStraumas.phobia_types.len) // NOTE: ONLY if phobias have been defined! For some reason, sometimes this gets FUCKED??
-		C.gain_trauma(/datum/brain_trauma/mild/phobia/strangers, TRAUMA_RESILIENCE_ABSOLUTE)
 		C.gain_trauma(/datum/brain_trauma/mild/hallucinations, TRAUMA_RESILIENCE_ABSOLUTE)
 		C.gain_trauma(/datum/brain_trauma/special/bluespace_prophet/phobetor, TRAUMA_RESILIENCE_ABSOLUTE)
 
@@ -159,13 +160,7 @@
 
 	// Resolve Trauma
 	C.cure_trauma_type(/datum/brain_trauma/special/bluespace_prophet/phobetor, TRAUMA_RESILIENCE_ABSOLUTE)
-	C.cure_trauma_type(/datum/brain_trauma/mild/phobia/strangers, TRAUMA_RESILIENCE_ABSOLUTE)
 	C.cure_trauma_type(/datum/brain_trauma/mild/hallucinations, TRAUMA_RESILIENCE_ABSOLUTE)
-
-/datum/species/beefman/random_name(gender,unique,lastname)
-	if(unique)
-		return random_unique_beefman_name(gender)
-	return capitalize(beefman_name(gender))
 
 /datum/species/beefman/spec_life(mob/living/carbon/human/H)	// This is your life ticker.
 	..()
@@ -187,11 +182,11 @@
 		var/obj/item/bodypart/BP = i
 		bleed_rate += BP.generic_bleedstacks
 
-/datum/species/beefman/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/datum/species/beefman/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 
 	// Pre-Equip: Give us a sash so we don't end up with a Uniform!
 	var/obj/item/clothing/under/bodysash/newSash
-	switch(J.title)
+	switch(job.title)
 
 		// Assistant
 		if("Assistant")
@@ -201,17 +196,25 @@
 			newSash = new /obj/item/clothing/under/bodysash/captain()
 		// Security
 		if("Head of Security")
-			newSash = new /obj/item/clothing/under/bodysash/hos()
+			newSash = new /obj/item/clothing/under/bodysash/security/hos()
 		if("Warden")
-			newSash = new /obj/item/clothing/under/bodysash/warden()
+			newSash = new /obj/item/clothing/under/bodysash/security/warden()
 		if("Security Officer")
 			newSash = new /obj/item/clothing/under/bodysash/security()
 		if("Detective")
-			newSash = new /obj/item/clothing/under/bodysash/detective()
+			newSash = new /obj/item/clothing/under/bodysash/security/detective()
 		if("Brig Physician")
-			newSash = new /obj/item/clothing/under/bodysash/brigdoc()
+			newSash = new /obj/item/clothing/under/bodysash/security/brigdoc()
 		if("Deputy")
-			newSash = new /obj/item/clothing/under/bodysash/deputy()
+			newSash = new /obj/item/clothing/under/bodysash/security/deputy()
+		if("Engineering Deputy")
+			newSash = new /obj/item/clothing/under/bodysash/security/deputy()
+		if("Medical Deputy")
+			newSash = new /obj/item/clothing/under/bodysash/security/deputy()
+		if("Science Deputy")
+			newSash = new /obj/item/clothing/under/bodysash/security/deputy()
+		if("Supply Deputy")
+			newSash = new /obj/item/clothing/under/bodysash/security/deputy()
 
 		// Medical
 		if("Chief Medical Officer")
@@ -285,12 +288,11 @@
 
 	// Destroy Original Uniform (there probably isn't one though)
 
-	if (H.w_uniform)
-		qdel(H.w_uniform)
+	if (equipping.w_uniform)
+		qdel(equipping.w_uniform)
 	// Equip New
-	H.equip_to_slot_or_del(newSash, ITEM_SLOT_ICLOTHING, TRUE) // TRUE is whether or not this is "INITIAL", as in startup
+	equipping.equip_to_slot_or_del(newSash, ITEM_SLOT_ICLOTHING, TRUE) // TRUE is whether or not this is "INITIAL", as in startup
 	return ..()
-
 
 /datum/species/beefman/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	. = ..() // Let species run its thing by default, TRUST ME
@@ -344,11 +346,17 @@
 				return FALSE
 
 			// Pry it off...
-			user.visible_message("[user] grabs onto [p_their()] own [affecting.name] and pulls.", "<span class='notice'>You grab hold of your [affecting.name] and yank hard.</span>")
+			user.visible_message(
+				span_notice("[user] grabs onto [p_their()] own [affecting.name] and pulls."),
+				span_notice("You grab hold of your [affecting.name] and yank hard."),
+			)
 			if (!do_mob(user,target))
 				return TRUE
 
-			user.visible_message("[user]'s [affecting.name] comes right off in their hand.", "<span class='notice'>Your [affecting.name] pops right off.</span>")
+			user.visible_message(
+				span_notice("[user]'s [affecting.name] comes right off in their hand."),
+				span_notice("Your [affecting.name] pops right off."),
+			)
 			playsound(get_turf(user), 'fulp_modules/main_features/beefmen/sounds/beef_hit.ogg', 40, 1)
 
 			// Destroy Limb, Drop Meat, Pick Up
@@ -383,13 +391,15 @@
 				user.visible_message("[user] begins mashing [I] into [H]'s torso.", "<span class='notice'>You begin mashing [I] into your torso.</span>")
 			else
 				user.visible_message("[user] begins mashing [I] into [H]'s torso.", "<span class='notice'>You begin mashing [I] into [H]'s torso.</span>")
-
 			// Leave Melee Chain (so deleting the meat doesn't throw an error) <--- aka, deleting the meat that called this very proc.
 			spawn(1)
 				if(do_mob(user,H))
 					// Attach the part!
 					var/obj/item/bodypart/newBP = H.newBodyPart(target_zone, FALSE)
-					H.visible_message("The meat sprouts digits and becomes [H]'s new [newBP.name]!", "<span class='notice'>The meat sprouts digits and becomes your new [newBP.name]!</span>")
+					H.visible_message(
+						span_notice("The meat sprouts digits and becomes [H]'s new [newBP.name]!"),
+						span_notice("The meat sprouts digits and becomes your new [newBP.name]!"),
+					)
 					newBP.attach_limb(H)
 					newBP.give_meat(H, I)
 					playsound(get_turf(H), 'fulp_modules/main_features/beefmen/sounds/beef_grab.ogg', 50, 1)
@@ -400,6 +410,301 @@
 */
 			//// OUTSIDE PROCS ////
 
+/datum/species/beefman/random_name(gender,unique,lastname)
+	if(unique)
+		return random_unique_beefman_name()
+
+	var/randname = beefman_name()
+
+	return randname
+
+// taken from _HELPERS/mobs.dm
+/proc/random_unique_beefman_name(attempts_to_find_unique_name=10)
+	for(var/i in 1 to attempts_to_find_unique_name)
+		. = capitalize(beefman_name())
+
+/proc/beefman_name()
+	if(prob(50))
+		return "[pick(GLOB.experiment_names)] \Roman[rand(1,49)] [pick(GLOB.russian_names)]"
+	return "[pick(GLOB.experiment_names)] \Roman[rand(1,49)] [pick(GLOB.beef_names)]"
 
 
+// INTEGRATION //
 
+// NOTE: the proc for a bodypart appearing on a mob is get_limb_icon() in bodypart.dm    !! We tracked it from limb_augmentation.dm -> carbon/update_icons.dm -> bodyparts.dm
+// Return what the robot part should look like on the current mob.
+/obj/item/bodypart/proc/ReturnLocalAugmentIcon()
+	// Default: No Owner  --> use default
+	if (!owner)
+		return icon_greyscale_robotic
+
+	// Return Part
+	var/obj/item/bodypart/bpType
+	if (body_zone == BODY_ZONE_HEAD)
+		bpType = owner.part_default_head
+	if (body_zone == BODY_ZONE_CHEST)
+		bpType = owner.part_default_chest
+	if (body_zone == BODY_ZONE_L_ARM)
+		bpType = owner.part_default_l_arm
+	if (body_zone == BODY_ZONE_R_ARM)
+		bpType = owner.part_default_r_arm
+	if (body_zone == BODY_ZONE_L_LEG)
+		bpType = owner.part_default_l_leg
+	if (body_zone == BODY_ZONE_R_LEG)
+		bpType = owner.part_default_r_leg
+
+	if (bpType)
+		return initial(bpType.icon_greyscale_robotic)
+
+	// Fail? Default
+	return icon_greyscale_robotic
+
+
+/mob/living/carbon/human/species/beefman
+	race = /datum/species/beefman
+
+/obj/item/bodypart
+	var/icon/icon_greyscale = 'icons/mob/human_parts_greyscale.dmi' // Keep an eye on _DEFINES/mobs.dm to see if DEFAULT_BODYPART_ICON_ORGANIC / _ROBOTIC change.
+	var/icon/icon_greyscale_robotic = 'icons/mob/augmentation/augments.dmi'
+	var/obj/item/food/meat/slab/myMeatType = /obj/item/food/meat/slab // For remembering what kind of meat this was made of. Default is base meat slab.
+	var/amCondemned = FALSE // I'm about to be destroyed. Don't add blood to me, and throw null error crap next tick.
+
+	//var/species_id_original = "human" 	// So we know to whom we originally belonged. This swaps freely until the DROP LOCK below is set.
+	var/organicDropLocked = FALSE   	// When set to TRUE, that means this part has been CLAIMED by the race that dropped it.
+	var/prevOrganicState				// Remember each organic icon as you build it; if this limb drops, its stuck with that forever.
+	var/prevOrganicState_Aux			// The hand sprite
+	var/prevOrganicIcon
+
+/obj/item/bodypart/add_mob_blood(mob/living/M) // Cancel adding blood if I'm deletin (throws errors)
+	if (!amCondemned)
+		..()
+
+/mob/living/carbon
+	// Type References for Bodyparts
+	var/obj/item/bodypart/head/part_default_head = /obj/item/bodypart/head
+	var/obj/item/bodypart/chest/part_default_chest = /obj/item/bodypart/chest
+	var/obj/item/bodypart/l_arm/part_default_l_arm = /obj/item/bodypart/l_arm
+	var/obj/item/bodypart/r_arm/part_default_r_arm = /obj/item/bodypart/r_arm
+	var/obj/item/bodypart/l_leg/part_default_l_leg = /obj/item/bodypart/l_leg
+	var/obj/item/bodypart/r_leg/part_default_r_leg = /obj/item/bodypart/r_leg
+
+
+		// MEAT-TO-LIMB
+		// 1) Save Meat's type
+		// 2) Get all original Reagent TYPES from "list_reagents" on the meat itself - these reagents (TYPEPATHS) have the starter values. Save those values.
+		// 3) Sort through thisMeat.reagents.reagent_list, which has ALL CURRENT reagents (ACTUAL DATUMS) inside the meat. Add up all those values.
+		// 3) Percent = Compare the STARTER VALUES in list_reagents against the CURRENT VALUES in thisMeat.reagents.reagent_list/
+		// 4) Inject ALL OTHER CHEMS into bloodstream
+
+		// LIMB-TO-MEAT
+		// 1) Create new meat
+		// 2) Sort through all reagent datums in newMeat.list_reagents and adjust each version in newMeat.reagents.reagent_list/(REAGENT)/.volume
+		// 3) Apply a small part of my body's metabolic reagents to the meat. Check how Feed does this.
+
+// Meat has been assigned to this NEW limb! Give it meat and damage me as needed.
+
+/obj/item/bodypart/proc/give_meat(mob/living/carbon/human/H, obj/item/food/meat/slab/inMeatObj)
+	// Assign Type
+	myMeatType = inMeatObj.type
+
+		// Adjust Health (did you eat some of this?)
+
+	// Get Original Amount
+	var/amountOriginal
+	for (var/R in inMeatObj.food_reagents) // <---- List of TYPES and the starting AMOUNTS
+		amountOriginal += inMeatObj.food_reagents[R]
+	// Get Current Amount (of original reagents only)
+	var/amountCurrent
+	for (var/datum/reagent/R in inMeatObj.reagents.reagent_list) // <---- Actual REAGENT DATUMS and their VOLUMES
+		// This datum exists in the original list?
+		if (locate(R.type) in inMeatObj.food_reagents)
+			amountCurrent += R.volume
+			// Remove it from Meat (all others are about to be injected)
+			inMeatObj.reagents.remove_reagent(R.type, R.volume)
+	inMeatObj.reagents.update_total()
+	// Set Health:
+	var/percentDamage = 1 - amountCurrent / amountOriginal
+	receive_damage(brute = max_damage * percentDamage)
+	if (percentDamage >= 0.9)
+		to_chat(owner, span_alert("It's almost completely useless. That [inMeatObj.name] was no good!"))
+	else if (percentDamage > 0.5)
+		to_chat(owner, span_alert("It's riddled with bite marks."))
+	else if (percentDamage > 0)
+		to_chat(owner, span_alert("It looks a little eaten away, but it'll do."))
+
+	// Apply meat's Reagents to Me
+	if(inMeatObj.reagents && inMeatObj.reagents.total_volume)
+		//inMeatObj.reagents.reaction(owner, INJECT, inMeatObj.reagents.total_volume) // Run Reaction: what happens when what they have mixes with what I have?	DEAD CODE MUST REWORK
+		inMeatObj.reagents.trans_to(owner, inMeatObj.reagents.total_volume)	// Run transfer of 1 unit of reagent from them to me.
+
+	qdel(inMeatObj)
+
+
+/obj/item/bodypart/proc/drop_meat(mob/inOwner)
+
+	//Checks tile for cloning pod, if found then limb stays limb. Stops cloner from breaking beefmen making them useless after being cloned.
+	//var/turf/T = get_turf(src)
+	//for(var/obj/machinery/M in T)
+	//	if(istype(M,/obj/machinery/clonepod))
+	//		return FALSE
+
+	// Not Organic? ABORT! Robotic stays robotic, desnt delete and turn to meat.
+	if (status != BODYPART_ORGANIC)
+		return FALSE
+
+	// If not 0% health, let's do it!
+	var/percentHealth = 1 - (brute_dam + burn_dam) / max_damage
+	if (myMeatType != null && percentHealth > 0)
+
+		// Create Meat
+		var/obj/item/food/meat/slab/newMeat =	new myMeatType(src.loc)///obj/item/food/meat/slab(src.loc)
+
+		// Adjust Reagents by Health Percent
+		for (var/datum/reagent/R in newMeat.reagents.reagent_list)
+			R.volume *= percentHealth
+		newMeat.reagents.update_total()
+
+		// Apply my Reagents to Meat
+		if(inOwner.reagents && inOwner.reagents.total_volume)
+			//inOwner.reagents.reaction(newMeat, INJECT, 20 / inOwner.reagents.total_volume) // Run Reaction: what happens when what they have mixes with what I have?	DEAD CODE MUST REWORK
+			inOwner.reagents.trans_to(newMeat, 20)	// Run transfer of 1 unit of reagent from them to me.
+
+		. = newMeat // Return MEAT
+
+	qdel(src)
+	//QDEL_IN(src,1) // Delete later. If we do it now, we screw up the "attack chain" that called this meat to attack the Beefman's stump.
+
+///Limbs
+/obj/item/bodypart/head/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+/obj/item/bodypart/chest/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+/// from dismemberment.dm
+/obj/item/bodypart/chest/beef/drop_limb(special)
+	amCondemned = TRUE
+	var/mob/owner_cache = owner
+	..() // Create Meat, Remove Limb
+	return drop_meat(owner_cache)
+
+/obj/item/bodypart/r_arm/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+/// from dismemberment.dm
+/obj/item/bodypart/r_arm/beef/drop_limb(special)
+	amCondemned = TRUE
+	var/mob/owner_cache = owner
+	..() // Create Meat, Remove Limb
+	return drop_meat(owner_cache)
+
+/obj/item/bodypart/l_arm/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+// from dismemberment.dm
+/obj/item/bodypart/l_arm/beef/drop_limb(special)
+	amCondemned = TRUE
+	var/mob/owner_cache = owner
+	..() // Create Meat, Remove Limb
+	return drop_meat(owner_cache)
+
+/obj/item/bodypart/r_leg/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+/// from dismemberment.dm
+/obj/item/bodypart/r_leg/beef/drop_limb(special)
+	amCondemned = TRUE
+	var/mob/owner_cache = owner
+	..() // Create Meat, Remove Limb
+	return drop_meat(owner_cache)
+
+/obj/item/bodypart/l_leg/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+	icon_greyscale_robotic = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts_robotic.dmi'
+	heavy_brute_msg = "mincemeat"
+	heavy_burn_msg = "burned to a crisp"
+
+/// from dismemberment.dm
+/obj/item/bodypart/l_leg/beef/drop_limb(special)
+	amCondemned = TRUE
+	var/mob/owner_cache = owner
+	..() // Create Meat, Remove Limb
+	return drop_meat(owner_cache)
+
+// SPRITE PARTS //
+/datum/sprite_accessory/beef
+	icon = 'fulp_modules/main_features/beefmen/icons/mob/beefman_bodyparts.dmi'
+
+	// please make sure they're sorted alphabetically and, where needed, categorized
+	// try to capitalize the names please~
+	// try to spell
+	// you do not need to define _s or _l sub-states, game automatically does this for you
+
+///Currently only used by mutantparts so don't worry about hair and stuff. This is the source that this accessory will get its color from. Default is MUTCOLOR, but can also be HAIR, FACEHAIR, EYECOLOR and 0 if none.
+/datum/sprite_accessory/beef/eyes
+	color_src = EYECOLOR
+
+/datum/sprite_accessory/beef/eyes/capers
+	name = "Capers"
+	icon_state = "capers"
+
+/datum/sprite_accessory/beef/eyes/cloves
+	name = "Cloves"
+	icon_state = "cloves"
+
+/datum/sprite_accessory/beef/eyes/peppercorns
+	name = "Peppercorns"
+	icon_state = "peppercorns"
+
+/datum/sprite_accessory/beef/eyes/olives
+	name = "Olives"
+	icon_state = "olives"
+
+/datum/sprite_accessory/beef/mouth
+	use_static = TRUE
+	color_src = 0
+
+/datum/sprite_accessory/beef/mouth/frown1
+	name = "Frown1"
+	icon_state = "frown1"
+
+/datum/sprite_accessory/beef/mouth/frown2
+	name = "Frown2"
+	icon_state = "frown2"
+
+/datum/sprite_accessory/beef/mouth/grit1
+	name = "Grit1"
+	icon_state = "grit1"
+
+/datum/sprite_accessory/beef/mouth/grit2
+	name = "Grit2"
+	icon_state = "grit2"
+
+/datum/sprite_accessory/beef/mouth/smile1
+	name = "Smile1"
+	icon_state = "smile1"
+
+/datum/sprite_accessory/beef/mouth/smile2
+	name = "Smile2"
+	icon_state = "smile2"
