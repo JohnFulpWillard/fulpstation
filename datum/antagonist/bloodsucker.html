@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;antagonist&#x2F;bloodsucker - &#x2F;tg&#x2F; Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">&#x2F;tg&#x2F; Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/antagonist/bloodsucker.html#var">Var Details</a> - <a href="datum/antagonist/bloodsucker.html#proc">Proc Details</a></header>
+<main>
+<h1>bloodsucker <aside>/<a href="datum.html">datum</a>/<a href="datum/antagonist.html">antagonist</a>/<a href="datum/antagonist/bloodsucker.html">bloodsucker</a></aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L1">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/AmFinalDeath">AmFinalDeath</a></th><td>Have we reached final death?</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/Frenzied">Frenzied</a></th><td>Are we currently in a Frenzy? - Martial Art also used in Frenzy</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/bloodsucker_level">bloodsucker_level</a></th><td>Stats that change throughout the round and used for Ranking up.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/bloodsucker_name">bloodsucker_name</a></th><td>Used for assigning your name</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/broke_masquerade">broke_masquerade</a></th><td>Have we been broken the Masquerade?</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/creator">creator</a></th><td>Who made me? For both Vassals AND Bloodsuckers (though Master Vamps won't have one)</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/defaultTraits">defaultTraits</a></th><td>Default traits ALL Bloodsuckers get.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/foodInGut">foodInGut</a></th><td>How much food to throw up later. You shouldn't have eaten that.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/frenzy_threshold">frenzy_threshold</a></th><td>How much Blood I must lose before entering Frenzy - Affected by humanity_lost</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/humanity_lost">humanity_lost</a></th><td>Amount of Humanity I've lost</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/lair">lair</a></th><td>Used for Bloodsucker Objectives</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/my_clan">my_clan</a></th><td>You get assigned a Clan once you Rank up enough</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/my_favorite_vassal">my_favorite_vassal</a></th><td>Have we selected our Favorite Vassal yet? - This is Ventrue only!</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/notice_healing">notice_healing</a></th><td>Var to see if you are healing for preventing spam of the chat message inform the user of such</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/passive_blood_drain">passive_blood_drain</a></th><td>The amount of blood we loose each bloodsucker life tick LifeTick()</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/powers">powers</a></th><td>Powers</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/valuecolor">valuecolor</a></th><td>Used in Bloodsucker huds</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/vassal_banned_antags">vassal_banned_antags</a></th><td>List of all Antagonists that can't be vassalized.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/vassals">vassals</a></th><td>Vassals under my control. Periodically remove the dead ones.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/warn_sun_burn">warn_sun_burn</a></th><td>So we only get the sun burn message once per day.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#var/warn_sun_locker">warn_sun_locker</a></th><td>So we only get the locker burn message once per day.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/AmInvalidAntag">AmInvalidAntag</a></th><td>Check if they are an antag, if so, check if they're Invalid.
+Otherwise, just cancel out.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/BuyPower">BuyPower</a></th><td>Buying powers</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/Check_Begin_Torpor">Check_Begin_Torpor</a></th><td>Staked? Dont heal
+Otherwise, check if it's Sol, to enter Torpor.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/Check_End_Torpor">Check_End_Torpor</a></th><td>Are we entering Torpor via Sol/Death? Then entering it isnt optional!
+Checks - Not daylight &amp; Has more than 10 Brute/Burn &amp; not already in Torpor</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/ClearAllPowersAndStats">ClearAllPowersAndStats</a></th><td>Purchase Roundstart Powers
+Give Bloodsucker Traits
+Clear Addictions
+No Skittish &quot;People&quot; allowed
+Stats
+Make Changes
+Tongue &amp; Language
+Clear Disabilities &amp; Organs</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/DisableAllPowers">DisableAllPowers</a></th><td>Disables all powers, accounting for torpor</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/FinalDeath">FinalDeath</a></th><td>Gibs the Bloodsucker, roundremoving them.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/FreeAllVassals">FreeAllVassals</a></th><td>When a Bloodsucker gets FinalDeath, all Vassals are freed - This is a Bloodsucker proc, not a Vassal one.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/HandleDeath">HandleDeath</a></th><td>FINAL DEATH</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/HandleFeeding">HandleFeeding</a></th><td>mult: SILENT feed is 1/3 the amount</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/HandleHealing">HandleHealing</a></th><td>Starts at 15 (now 8 since we doubled the Feed time)</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/HandleStarving">HandleStarving</a></th><td>Not &quot;Alive&quot;?
+Fire Damage? (above double health)
+Staked while &quot;Temp Death&quot; or Asleep
+Not organic/living? (Zombie/Skeleton/Plasmaman)
+Temporary Death? Convert to Torpor.
+We won't use the spam check if they're on masquerade, we want to spam them until they notice, else they'll cry to me about shit being broken.
+I am thirsty for blood!</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/LifeTick">LifeTick</a></th><td>Runs from COMSIG_LIVING_BIOLOGICAL_LIFE, handles Bloodsucker constant proccesses.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/RankUp">RankUp</a></th><td>Remove huds
+Stats
+Remove ALL Traits, as long as its from BLOODSUCKER_TRAIT's source. - This is because of unique cases like Nosferatu getting Ventcrawling.
+Update Health
+Heart
+Eyes</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/RemoveVampOrgans">RemoveVampOrgans</a></th><td>Do I have any parts that need replacing?</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/SelectFirstName">SelectFirstName</a></th><td>Names</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/Torpor_End">Torpor_End</a></th><td>Force them to go to sleep
+Without this, you'll just keep dying while you recover.
+Disable ALL Powers</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/antag_listing_name">antag_listing_name</a></th><td>Name shown on antag list</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/antag_listing_status">antag_listing_status</a></th><td>Whatever interesting things happened to the antag admins should know about
+Include additional information about antag in this part</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/apply_innate_effects">apply_innate_effects</a></th><td>These handles the application of antag huds/special abilities</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/attempt_turn_vassal">attempt_turn_vassal</a></th><td>Not an antag?
+Checks if the person is an antag banned from being vassalized, stored in bloodsucker's datum.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/break_masquerade">break_masquerade</a></th><td>When a Bloodsucker breaks the Masquerade, they get their HUD icon changed, and Malkavian Bloodsuckers get alerted.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/can_make_vassal">can_make_vassal</a></th><td>VassalCheckAntagValid(target.mind, check_antag_or_loyal)) // HAS_TRAIT(target, TRAIT_MINDSHIELD, &quot;implant&quot;) ||</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/check_limbs">check_limbs</a></th><td>Checks if you're in a coffin here, additionally checks for Torpor right below it.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/forge_bloodsucker_objectives">forge_bloodsucker_objectives</a></th><td>Create Objectives</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/greet">greet</a></th><td>End Sunlight? (if last Vamp)</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/on_gain">on_gain</a></th><td>Called by the add_antag_datum() mind proc after the instanced datum is added to the mind's antag_datums list.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/on_removal">on_removal</a></th><td>Assign Powers
+If I have a creator, then set as Fledgling.
+Called by the remove_antag_datum() and remove_all_antag_datums() mind procs for the antag datum to handle its own removal and deletion.</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/remove_vassal">remove_vassal</a></th><td>Called by FreeAllVassals()</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/roundend_report">roundend_report</a></th><td>Individual roundend report</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/set_vassal_level">set_vassal_level</a></th><td>Check If I don't own it &amp; I'm allowed to buy it.
+Give them the UI to purchase a power.
+Good to go - Buy Power!
+Advance Powers - Includes the one you just purchased.
+Bloodsucker-only Stat upgrades
+Misc. Stats Upgrades
+This affects the hitting power of Brawn.
+We're almost done - Spend your Rank now.
+Ranked up enough? Let them join a Clan.
+Alright, enough playing around, get your true Reputation.
+Done! Let them know &amp; Update their HUD.
+Set the Vassal's rank to their Bloodsucker level</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/update_hud">update_hud</a></th><td>Update Blood Counter + Rank Counter</td></tr>
+            <tr><th><a href="datum/antagonist/bloodsucker.html#proc/update_sunlight">update_sunlight</a></th><td>Only change icon on special request.
+Update Sun Time</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/AmFinalDeath"><aside class="declaration">var </aside>AmFinalDeath
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L84">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 84"/></a></h3>
+        <p>Have we reached final death?</p><h3 id="var/Frenzied"><aside class="declaration">var </aside>Frenzied
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L86">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 86"/></a></h3>
+        <p>Are we currently in a Frenzy? - Martial Art also used in Frenzy</p><h3 id="var/bloodsucker_level"><aside class="declaration">var </aside>bloodsucker_level
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L49">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 49"/></a></h3>
+        <p>Stats that change throughout the round and used for Ranking up.</p><h3 id="var/bloodsucker_name"><aside class="declaration">var </aside>bloodsucker_name
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L21">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 21"/></a></h3>
+        <p>Used for assigning your name</p><h3 id="var/broke_masquerade"><aside class="declaration">var </aside>broke_masquerade
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L72">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 72"/></a></h3>
+        <p>Have we been broken the Masquerade?</p><h3 id="var/creator"><aside class="declaration">var </aside>creator
+            <aside>&ndash; /<a href="datum.html">datum</a>/<a href="datum/mind.html">mind</a></aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L37">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 37"/></a></h3>
+        <p>Who made me? For both Vassals AND Bloodsuckers (though Master Vamps won't have one)</p><h3 id="var/defaultTraits"><aside class="declaration">var </aside>defaultTraits
+            <aside>&ndash; /static/list</aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L91">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 91"/></a></h3>
+        <p>Default traits ALL Bloodsuckers get.</p><h3 id="var/foodInGut"><aside class="declaration">var </aside>foodInGut
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L74">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 74"/></a></h3>
+        <p>How much food to throw up later. You shouldn't have eaten that.</p><h3 id="var/frenzy_threshold"><aside class="declaration">var </aside>frenzy_threshold
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L41">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 41"/></a></h3>
+        <p>How much Blood I must lose before entering Frenzy - Affected by humanity_lost</p><h3 id="var/humanity_lost"><aside class="declaration">var </aside>humanity_lost
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L39">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 39"/></a></h3>
+        <p>Amount of Humanity I've lost</p><h3 id="var/lair"><aside class="declaration">var </aside>lair
+            <aside>&ndash; /<a href="area.html">area</a></aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L57">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 57"/></a></h3>
+        <p>Used for Bloodsucker Objectives</p><h3 id="var/my_clan"><aside class="declaration">var </aside>my_clan
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L33">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 33"/></a></h3>
+        <p>You get assigned a Clan once you Rank up enough</p><h3 id="var/my_favorite_vassal"><aside class="declaration">var </aside>my_favorite_vassal
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L89">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 89"/></a></h3>
+        <p>Have we selected our Favorite Vassal yet? - This is Ventrue only!</p><h3 id="var/notice_healing"><aside class="declaration">var </aside>notice_healing
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L82">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 82"/></a></h3>
+        <p>Var to see if you are healing for preventing spam of the chat message inform the user of such</p><h3 id="var/passive_blood_drain"><aside class="declaration">var </aside>passive_blood_drain
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L80">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 80"/></a></h3>
+        <p>The amount of blood we loose each bloodsucker life tick LifeTick()</p><h3 id="var/powers"><aside class="declaration">var </aside>powers
+            <aside>&ndash; /list/datum/action</aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L44">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 44"/></a></h3>
+        <p>Powers</p><h3 id="var/valuecolor"><aside class="declaration">var </aside>valuecolor
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L64">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 64"/></a></h3>
+        <p>Used in Bloodsucker huds</p><h3 id="var/vassal_banned_antags"><aside class="declaration">var </aside>vassal_banned_antags
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L13">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 13"/></a></h3>
+        <p>List of all Antagonists that can't be vassalized.</p><h3 id="var/vassals"><aside class="declaration">var </aside>vassals
+            <aside>&ndash; /list/datum/antagonist/vassal</aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L35">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 35"/></a></h3>
+        <p>Vassals under my control. Periodically remove the dead ones.</p><h3 id="var/warn_sun_burn"><aside class="declaration">var </aside>warn_sun_burn
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L78">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 78"/></a></h3>
+        <p>So we only get the sun burn message once per day.</p><h3 id="var/warn_sun_locker"><aside class="declaration">var </aside>warn_sun_locker
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L76">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 76"/></a></h3>
+        <p>So we only get the locker burn message once per day.</p><h2 id="proc">Proc Details</h2><h3 id="proc/AmInvalidAntag"><aside class="declaration">proc </aside>AmInvalidAntag<aside>(/<a href="mob.html">mob</a>/M) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/rulesets/bloodsucker_rulesets.dm#L215">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;rulesets&#x2F;bloodsucker_rulesets.dm 215"/></a></aside>
+        </h3>
+        <p>Check if they are an antag, if so, check if they're Invalid.
+Otherwise, just cancel out.</p><h3 id="proc/BuyPower"><aside class="declaration">proc </aside>BuyPower<aside>(/<a href="datum.html">datum</a>/<a href="datum/action/bloodsucker.html">action/bloodsucker</a>/power) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L287">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 287"/></a></aside>
+        </h3>
+        <p>Buying powers</p><h3 id="proc/Check_Begin_Torpor"><aside class="declaration">proc </aside>Check_Begin_Torpor<aside>(SkipChecks) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L343">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 343"/></a></aside>
+        </h3>
+        <p>Staked? Dont heal
+Otherwise, check if it's Sol, to enter Torpor.</p><h3 id="proc/Check_End_Torpor"><aside class="declaration">proc </aside>Check_End_Torpor<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L356">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 356"/></a></aside>
+        </h3>
+        <p>Are we entering Torpor via Sol/Death? Then entering it isnt optional!
+Checks - Not daylight &amp; Has more than 10 Brute/Burn &amp; not already in Torpor</p><h3 id="proc/ClearAllPowersAndStats"><aside class="declaration">proc </aside>ClearAllPowersAndStats<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L327">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 327"/></a></aside>
+        </h3>
+        <p>Purchase Roundstart Powers
+Give Bloodsucker Traits
+Clear Addictions
+No Skittish &quot;People&quot; allowed
+Stats
+Make Changes
+Tongue &amp; Language
+Clear Disabilities &amp; Organs</p><h3 id="proc/DisableAllPowers"><aside class="declaration">proc </aside>DisableAllPowers<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L396">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 396"/></a></aside>
+        </h3>
+        <p>Disables all powers, accounting for torpor</p><h3 id="proc/FinalDeath"><aside class="declaration">proc </aside>FinalDeath<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L396">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 396"/></a></aside>
+        </h3>
+        <p>Gibs the Bloodsucker, roundremoving them.</p><h3 id="proc/FreeAllVassals"><aside class="declaration">proc </aside>FreeAllVassals<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/vassal_datum.dm#L148">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;vassal_datum.dm 148"/></a></aside>
+        </h3>
+        <p>When a Bloodsucker gets FinalDeath, all Vassals are freed - This is a Bloodsucker proc, not a Vassal one.</p><h3 id="proc/HandleDeath"><aside class="declaration">proc </aside>HandleDeath<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L222">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 222"/></a></aside>
+        </h3>
+        <p>FINAL DEATH</p><h3 id="proc/HandleFeeding"><aside class="declaration">proc </aside>HandleFeeding<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/target, mult) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L66">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 66"/></a></aside>
+        </h3>
+        <p>mult: SILENT feed is 1/3 the amount</p><h3 id="proc/HandleHealing"><aside class="declaration">proc </aside>HandleHealing<aside>(mult) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L106">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 106"/></a></aside>
+        </h3>
+        <p>Starts at 15 (now 8 since we doubled the Feed time)</p>
+<p>It is called from your coffin on close (by you only)</p><h3 id="proc/HandleStarving"><aside class="declaration">proc </aside>HandleStarving<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L270">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 270"/></a></aside>
+        </h3>
+        <p>Not &quot;Alive&quot;?
+Fire Damage? (above double health)
+Staked while &quot;Temp Death&quot; or Asleep
+Not organic/living? (Zombie/Skeleton/Plasmaman)
+Temporary Death? Convert to Torpor.
+We won't use the spam check if they're on masquerade, we want to spam them until they notice, else they'll cry to me about shit being broken.
+I am thirsty for blood!</p><h3 id="proc/LifeTick"><aside class="declaration">proc </aside>LifeTick<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L18">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 18"/></a></aside>
+        </h3>
+        <p>Runs from COMSIG_LIVING_BIOLOGICAL_LIFE, handles Bloodsucker constant proccesses.</p><h3 id="proc/RankUp"><aside class="declaration">proc </aside>RankUp<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L365">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 365"/></a></aside>
+        </h3>
+        <p>Remove huds
+Stats
+Remove ALL Traits, as long as its from BLOODSUCKER_TRAIT's source. - This is because of unique cases like Nosferatu getting Ventcrawling.
+Update Health
+Heart
+Eyes</p><h3 id="proc/RemoveVampOrgans"><aside class="declaration">proc </aside>RemoveVampOrgans<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_objects.dm#L45">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_objects.dm 45"/></a></aside>
+        </h3>
+        <p>Do I have any parts that need replacing?</p><h3 id="proc/SelectFirstName"><aside class="declaration">proc </aside>SelectFirstName<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L591">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 591"/></a></aside>
+        </h3>
+        <p>Names</p><h3 id="proc/Torpor_End"><aside class="declaration">proc </aside>Torpor_End<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L385">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 385"/></a></aside>
+        </h3>
+        <p>Force them to go to sleep
+Without this, you'll just keep dying while you recover.
+Disable ALL Powers</p><h3 id="proc/antag_listing_name">antag_listing_name<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L574">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 574"/></a></aside>
+        </h3>
+        <p>Name shown on antag list</p><h3 id="proc/antag_listing_status">antag_listing_status<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L579">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 579"/></a></aside>
+        </h3>
+        <p>Whatever interesting things happened to the antag admins should know about
+Include additional information about antag in this part</p><h3 id="proc/apply_innate_effects">apply_innate_effects<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/mob_override) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L100">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 100"/></a></aside>
+        </h3>
+        <p>These handles the application of antag huds/special abilities</p><h3 id="proc/attempt_turn_vassal"><aside class="declaration">proc </aside>attempt_turn_vassal<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/C, can_vassal_sleeping) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/rulesets/bloodsucker_rulesets.dm#L228">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;rulesets&#x2F;bloodsucker_rulesets.dm 228"/></a></aside>
+        </h3>
+        <p>Not an antag?
+Checks if the person is an antag banned from being vassalized, stored in bloodsucker's datum.</p><h3 id="proc/break_masquerade"><aside class="declaration">proc </aside>break_masquerade<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L667">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 667"/></a></aside>
+        </h3>
+        <p>When a Bloodsucker breaks the Masquerade, they get their HUD icon changed, and Malkavian Bloodsuckers get alerted.</p><h3 id="proc/can_make_vassal"><aside class="declaration">proc </aside>can_make_vassal<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/target, /<a href="datum.html">datum</a>/<a href="datum/mind.html">mind</a>/creator, display_warning, can_vassal_sleeping) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/rulesets/bloodsucker_rulesets.dm#L180">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;rulesets&#x2F;bloodsucker_rulesets.dm 180"/></a></aside>
+        </h3>
+        <p>VassalCheckAntagValid(target.mind, check_antag_or_loyal)) // HAS_TRAIT(target, TRAIT_MINDSHIELD, &quot;implant&quot;) ||</p><h3 id="proc/check_limbs"><aside class="declaration">proc </aside>check_limbs<aside>(costMult) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/bloodsucker/bloodsucker_life.dm#L141">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;bloodsucker&#x2F;bloodsucker_life.dm 141"/></a></aside>
+        </h3>
+        <p>Checks if you're in a coffin here, additionally checks for Torpor right below it.</p><h3 id="proc/forge_bloodsucker_objectives"><aside class="declaration">proc </aside>forge_bloodsucker_objectives<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L538">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 538"/></a></aside>
+        </h3>
+        <p>Create Objectives</p><h3 id="proc/greet"><aside class="parent"><a title="/datum/antagonist" href="datum/antagonist.html#proc/greet">&uarr;</a></aside>greet<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L139">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 139"/></a></aside>
+        </h3>
+        <p>End Sunlight? (if last Vamp)</p><h3 id="proc/on_gain">on_gain<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L113">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 113"/></a></aside>
+        </h3>
+        <p>Called by the add_antag_datum() mind proc after the instanced datum is added to the mind's antag_datums list.</p><h3 id="proc/on_removal">on_removal<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L132">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 132"/></a></aside>
+        </h3>
+        <p>Assign Powers
+If I have a creator, then set as Fledgling.
+Called by the remove_antag_datum() and remove_all_antag_datums() mind procs for the antag datum to handle its own removal and deletion.</p><h3 id="proc/remove_vassal"><aside class="declaration">proc </aside>remove_vassal<aside>(/<a href="datum.html">datum</a>/<a href="datum/mind.html">mind</a>/vassal) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/vassal_datum.dm#L155">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;vassal_datum.dm 155"/></a></aside>
+        </h3>
+        <p>Called by FreeAllVassals()</p><h3 id="proc/roundend_report"><aside class="parent"><a title="/datum/antagonist" href="datum/antagonist.html#proc/roundend_report">&uarr;</a></aside>roundend_report<aside>() 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L229">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 229"/></a></aside>
+        </h3>
+        <p>Individual roundend report</p><h3 id="proc/set_vassal_level"><aside class="declaration">proc </aside>set_vassal_level<aside>(/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/<a href="mob/living/carbon/human.html">human</a>/target) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L528">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 528"/></a></aside>
+        </h3>
+        <p>Check If I don't own it &amp; I'm allowed to buy it.
+Give them the UI to purchase a power.
+Good to go - Buy Power!
+Advance Powers - Includes the one you just purchased.
+Bloodsucker-only Stat upgrades
+Misc. Stats Upgrades
+This affects the hitting power of Brawn.
+We're almost done - Spend your Rank now.
+Ranked up enough? Let them join a Clan.
+Alright, enough playing around, get your true Reputation.
+Done! Let them know &amp; Update their HUD.
+Set the Vassal's rank to their Bloodsucker level</p><h3 id="proc/update_hud"><aside class="declaration">proc </aside>update_hud<aside>(updateRank) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L827">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 827"/></a></aside>
+        </h3>
+        <p>Update Blood Counter + Rank Counter</p><h3 id="proc/update_sunlight"><aside class="declaration">proc </aside>update_sunlight<aside>(value, amDay) 
+        
+    
+            <a href="https://github.com/JohnFulpWillard/fulpstation/blob/63e240c93ca5e7a28112807c05a92b2894e0830c/fulp_modules/main_features/bloodsuckers/code/antagonists/bloodsucker_datum.dm#L845">
+        <img src="git.png" width="16" height="16" title="fulp_modules&#x2F;main_features&#x2F;bloodsuckers&#x2F;code&#x2F;antagonists&#x2F;bloodsucker_datum.dm 845"/></a></aside>
+        </h3>
+        <p>Only change icon on special request.
+Update Sun Time</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/JohnFulpWillard/fulpstation/tree/63e240c93ca5e7a28112807c05a92b2894e0830c">63e240c</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
+</body>
+</html>
