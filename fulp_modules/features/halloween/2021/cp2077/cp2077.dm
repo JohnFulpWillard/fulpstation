@@ -1,9 +1,17 @@
+/**
+ * CP 2077 costume
+ * From: Cyberpunk 2077
+ * By: BalkyGoat
+ */
+
+///Jumpsuit
 /obj/item/clothing/under/costume_2021/cp2077_rockerboy
 	name = "rockerboy's suit"
 	desc = "One last gig."
 	icon_state = "cp2077jsh_suit"
 	has_sensor = HAS_SENSORS
 
+///Toggled suit
 /obj/item/clothing/suit/toggle/cp2077_rockerboy
 	name = "samurai's jacket"
 	desc = "Never fade away."
@@ -13,6 +21,7 @@
 	body_parts_covered = CHEST|ARMS
 	togglename = "mantis blades"
 
+///Glasses
 /obj/item/clothing/glasses/cp2077_glasses
 	name = "hackerman glasses"
 	desc = "Oh! Shiny!"
