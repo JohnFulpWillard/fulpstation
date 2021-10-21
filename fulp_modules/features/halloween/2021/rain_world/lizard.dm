@@ -31,7 +31,7 @@
 	greyscale_config_worn = /datum/greyscale_config/lizard_onesie_head/worn
 	greyscale_colors = "#FFFFFF"
 	body_parts_covered = HEAD
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACIALHAIR|HIDEMASK
 
 /obj/item/clothing/suit/hooded/costume_2021/lizard/Initialize(mapload)
 	. = ..()
