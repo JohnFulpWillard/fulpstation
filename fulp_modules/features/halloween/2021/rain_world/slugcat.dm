@@ -12,32 +12,35 @@
 	icon_state = "slugcat"
 	greyscale_config = /datum/greyscale_config/slugcat
 	greyscale_config_worn = /datum/greyscale_config/slugcat/worn
-	greyscale_colors = slugcat_onesie_colour
+	greyscale_colors = "#FFFFFF"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	hoodtype = /obj/item/clothing/head/hooded/costume_2021/slugcat_head
+	var/static/list/slugcat_onesie_colours = list(
+		"#ffec3e",
+		"#FFFFFF",
+		"#ff4040",
+		"#b72cee",
+		"#2495e0",
+		"#32bb2e",
+		"#ff7e28",
+	)
 
 /obj/item/clothing/head/hooded/costume_2021/slugcat_head
 	name = "slugcat onesie"
 	icon_state = "slugcat_head"
 	greyscale_config = /datum/greyscale_config/slugcat_head
 	greyscale_config_worn = /datum/greyscale_config/slugcat_head/worn
-	greyscale_colors = slugcat_onesie_colour
+	greyscale_colors = "#FFFFFF"
 	body_parts_covered = HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 
-/obj/item/clothing/suit/hooded/costume_2021/slugcat/Initialize()
+/obj/item/clothing/suit/hooded/costume_2021/slugcat/Initialize(mapload)
 	. = ..()
-	var/static/list/slugcat_onesie_colours = list(
-		"#ffec3e", //yellow
-		"#FFFFFF", //white
-		"#ff4040", //red
-		"#b72cee", //purple
-		"#2495e0", //blue
-		"#32bb2e", //green
-		"#ff7e28" //orange
-	)
-	var/slugcat_oneise_colour = pick(list/slugcat_onesie_colours)
+	var/slugcat_onesie_colour = pick(slugcat_onesie_colours)
+
+	set_greyscale(slugcat_onesie_colour)
+	hood.set_greyscale(slugcat_onesie_colour)
 
 /obj/item/clothing/suit/hooded/costume_2021/slugcat/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()

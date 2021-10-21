@@ -1,5 +1,5 @@
 /**
- * Slug cat
+ * Lizard
  * From: Rain World
  * By: Sheets
  */
@@ -10,32 +10,35 @@
 	icon_state = "lizard"
 	greyscale_config = /datum/greyscale_config/lizard_onesie
 	greyscale_config_worn = /datum/greyscale_config/lizard_onesie/worn
-	greyscale_colors = lizard_onesie_colour
+	greyscale_colors = "#FFFFFF"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|FEET
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	hoodtype = /obj/item/clothing/head/hooded/costume_2021/lizard_head
+	var/static/list/lizard_onesie_colours = list(
+		"#ffec3e",
+		"#FFFFFF",
+		"#ff4040",
+		"#b72cee",
+		"#2495e0",
+		"#32bb2e",
+		"#ff7e28",
+	)
 
 /obj/item/clothing/head/hooded/costume_2021/lizard_head
 	name = "lizard onesie"
 	icon_state = "lizard_head"
 	greyscale_config = /datum/greyscale_config/lizard_onesie_head
 	greyscale_config_worn = /datum/greyscale_config/lizard_onesie_head/worn
-	greyscale_colors = lizard_onesie_colour
+	greyscale_colors = "#FFFFFF"
 	body_parts_covered = HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 
-/obj/item/clothing/suit/hooded/costume_2021/lizard/Initialize()
+/obj/item/clothing/suit/hooded/costume_2021/lizard/Initialize(mapload)
 	. = ..()
-	var/static/list/lizard_onesie_colours = list(
-		"#ffec3e", //yellow
-		"#FFFFFF", //white
-		"#ff4040", //red
-		"#b72cee", //purple
-		"#2495e0", //blue
-		"#32bb2e", //green
-		"#ff7e28" //orange
-	)
-	var/lizard_oneise_colour = pick(list/lizard_onesie_colours)
+	var/lizard_onesie_colour = pick(lizard_onesie_colours)
+
+	set_greyscale(lizard_onesie_colour)
+	hood.set_greyscale(lizard_onesie_colour)
 
 /obj/item/clothing/suit/hooded/costume_2021/lizard/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
@@ -52,3 +55,4 @@
 	costume_contents = list(
 		/obj/item/clothing/suit/hooded/costume_2021/lizard,
 	)
+
