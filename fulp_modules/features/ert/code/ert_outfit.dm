@@ -13,7 +13,6 @@
 /datum/outfit/centcom/ert/commander/medical
 	name = "ERT Commander - Medical"
 
-	suit_store = /obj/item/gun/energy/e_gun
 	back = /obj/item/mod/control/pre_equipped/fulp/ert/commander/medical
 	backpack_contents = list(
 		/obj/item/gun/medbeam = 1,
@@ -30,7 +29,6 @@
 
 	uniform = /obj/item/clothing/under/abductor
 	backpack_contents = list(
-		/obj/item/gun/energy/alien = 1,
 		/obj/item/gun/medbeam = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/reagent_containers/hypospray/combat = 1,
@@ -53,7 +51,6 @@
 	name = "ERT Commander - Medical Alien"
 
 	uniform = /obj/item/clothing/under/abductor
-	suit_store = /obj/item/gun/energy/alien
 	backpack_contents = list(
 		/obj/item/gun/medbeam=1,
 		/obj/item/melee/baton/security/loaded = 1,
@@ -81,11 +78,11 @@
 
 	belt = /obj/item/storage/belt/security/webbing/full
 	mask = /obj/item/clothing/mask/gas/sechailer
+	l_hand = /obj/item/gun/energy/e_gun
 
 /datum/outfit/centcom/ert/commander/security
 	name = "ERT Commander - Security"
 
-	suit_store = /obj/item/gun/energy/e_gun/stun
 	back = /obj/item/mod/control/pre_equipped/fulp/ert/commander/security
 	backpack_contents = list(
 		/obj/item/melee/baton/security/loaded = 1,
@@ -96,6 +93,7 @@
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	mask = /obj/item/clothing/mask/gas/sechailer/swat
+	l_hand = /obj/item/gun/energy/e_gun
 
 // ENGINEERING ERT OUTFITS
 
@@ -121,7 +119,6 @@
 	glasses = /obj/item/clothing/glasses/meson/engine
 	mask = /obj/item/clothing/mask/gas
 	r_pocket = /obj/item/rcd_ammo/large
-	l_hand = /obj/item/gun/energy/e_gun
 
 // CLOWN ERT OUTFITS
 
