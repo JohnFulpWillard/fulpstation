@@ -8,7 +8,12 @@
 
 /obj/item/mod/control/pre_equipped/fulp/ert/commander/medical
 	theme = /datum/mod_theme/responsory/fulp/medical
-	initial_modules = list(/obj/item/mod/module/storage/large_capacity, /obj/item/mod/module/flashlight, /obj/item/mod/module/health_analyzer, /obj/item/mod/module/injector)
+	initial_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/health_analyzer,
+		/obj/item/mod/module/injector,
+	)
 
 /obj/item/mod/control/pre_equipped/fulp/ert/commander/engineering
 	theme = /datum/mod_theme/responsory/fulp/engineering
