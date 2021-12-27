@@ -37,7 +37,12 @@
 
 /obj/item/mod/control/pre_equipped/fulp/ert/commander/clown
 	theme = /datum/mod_theme/responsory/fulp/clown
-	initial_modules = list(/obj/item/mod/module/storage, /obj/item/mod/module/welding, /obj/item/mod/module/flashlight, /obj/item/mod/module/bikehorn)
+	initial_modules = list(
+		/obj/item/mod/module/storage,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/bikehorn,
+	)
 
 /datum/mod_theme/responsory/fulp
 	name = "responsory commander"
