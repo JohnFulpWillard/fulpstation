@@ -27,7 +27,13 @@
 
 /obj/item/mod/control/pre_equipped/fulp/ert/commander/security
 	theme = /datum/mod_theme/responsory/fulp/security
-	initial_modules = list(/obj/item/mod/module/storage/large_capacity, /obj/item/mod/module/welding, /obj/item/mod/module/flashlight, /obj/item/mod/module/jetpack, /obj/item/mod/module/holster)
+	initial_modules = list(
+		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/welding,
+		/obj/item/mod/module/flashlight,
+		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/holster,
+	)
 
 /obj/item/mod/control/pre_equipped/fulp/ert/commander/clown
 	theme = /datum/mod_theme/responsory/fulp/clown
