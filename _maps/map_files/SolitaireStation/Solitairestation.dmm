@@ -39021,7 +39021,8 @@
 "leo" = (
 /obj/item/radio/intercom/directional/south{
 	frequency = 1423;
-	name = "Interrogation Intercom"
+	name = "Interrogation Intercom";
+	pixel_y = -27
 	},
 /obj/structure/chair/office,
 /turf/open/floor/iron,
