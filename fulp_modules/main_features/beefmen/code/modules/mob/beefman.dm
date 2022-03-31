@@ -10,7 +10,7 @@
 	say_mod = "gurgles"
 	sexes = FALSE
 	default_color = "e73f4e"
-	mutantheart = /obj/item/organ/heart/beefman
+	//mutantheart = /obj/item/organ/heart/beefman //This is, once again, broken and I don't know why.
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, DYNCOLORS, AGENDER, HAS_FLESH, HAS_BONE)
 	mutant_bodyparts = list("beefcolor" = "Medium Rare","beefmouth" = "Smile1", "beefeyes" = "Olives")
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,
@@ -742,7 +742,8 @@
 /datum/sprite_accessory/beef/mouth/smile2
 	name = "Smile2"
 	icon_state = "smile2"
-
+// This is broken and I'm at a complete loss as to why. It worked fine on the current fulp master and nothing should have changed. Uncomment at your own risk.
+/*
 /obj/item/organ/heart/beefman
 	name = "Beefman heart"
 	desc = "Though human in appearance, the erractic movement patterns that somehow manage to sustain beefmen biology reveal it's true nature."
@@ -765,7 +766,7 @@
 	var/birthplace = (get_turf(victim))
 	victim.gib()
 	new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
-
+*/
 
 /obj/effect/mob_spawn/human/mitotic_clump
 	name = "Mitotic clump"
@@ -787,9 +788,10 @@
 	. = ..()
 	spawned_human.fully_replace_character_name(null, random_unique_beefman_name())
 	playsound(loc, 'sound/effects/meatslap.ogg', 100, TRUE)
+	// Chopping off a random limb partially for the sake of the accompaning FXs alone
 	var/list/possible_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_ARM, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/incomplete_limb = spawned_human.get_bodypart(pick(possible_limbs))
-	incomplete_limb.dismember(BURN)
+	incomplete_limb.dismember()
 	spawned_human.visible_message(span_warning("[spawned_human] emerges from the mitotic clump in a stomach churning manner!"), ignored_mobs = list(spawned_human))
 	//Gross everyone the fuck out
 	for(var/mob/living/carbon/human/human_in_view in view(spawned_human))
