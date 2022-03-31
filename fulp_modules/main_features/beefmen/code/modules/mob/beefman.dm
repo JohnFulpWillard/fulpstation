@@ -776,6 +776,7 @@
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
 	roundstart = FALSE
+	death = FALSE
 	mob_name = "a newborn beefman"
 	mob_species = /datum/species/beefman
 	short_desc = "You're a beefman, a newborn consequence of a long lost russian experiment."
