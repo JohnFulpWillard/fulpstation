@@ -761,7 +761,7 @@
 		new /obj/effect/mob_spawn/ghost_role/human/mitotic_clump(get_turf(owner))
 		owner.gib()
 
-/obj/effect/mob_spawn/ghost_role/human/mitotic_clump
+/obj/effect/mob_spawn/human/mitotic_clump
 	name = "Mitotic clump"
 	desc = "An amorphous mass of meat that seems to be growing rapidly."
 	icon =  'fulp_modules/main_features/beefmen/icons/clump.dmi'
@@ -771,7 +771,7 @@
 	density = FALSE
 	prompt_name = "a newborn beefman"
 	mob_species = /datum/species/beefman
-	you_are_text = "You're a beefman, a newborn consequence of a long lost russian experiment."
+	short_desc = "You're a beefman, a newborn consequence of a long lost russian experiment."
 	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
 	spawner_job_path = /datum/job/assistant
 
