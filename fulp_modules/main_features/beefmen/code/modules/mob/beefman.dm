@@ -762,10 +762,9 @@
 
 	if(new_stat != DEAD)
 		return
-	else
-		var/birthplace = (get_turf(owner))
-		owner.gib(TRUE, TRUE, TRUE)
-		new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
+	var/birthplace = (get_turf(owner))
+	owner.gib(TRUE, TRUE, TRUE)
+	new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
 
 
 /obj/effect/mob_spawn/human/mitotic_clump
@@ -776,14 +775,16 @@
 	anchored = FALSE
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
+	roundstart = FALSE
+	mob_name = "a newborn beefman"
 	mob_species = /datum/species/beefman
 	short_desc = "You're a beefman, a newborn consequence of a long lost russian experiment."
 	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
 	spawner_job_path = /datum/job/assistant
 
-/obj/effect/mob_spawn/human/mitotic_clump/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/human/mitotic_clump/special(mob/living/carbon/human/spawned_human, name)
 	. = ..()
-	spawned_human.fully_replace_character_name(null,random_unique_beefman_name())
+	spawned_human.fully_replace_character_name(null, random_unique_beefman_name())
 	playsound(loc, 'sound/effects/meatslap.ogg', 100, TRUE)
 	var/list/possible_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_ARM, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/incomplete_limb = spawned_human.get_bodypart(pick(possible_limbs))
