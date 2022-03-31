@@ -751,13 +751,13 @@
 
 /obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
 	. = ..()
-	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_stat_change)
+	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_change_to_death)
 
 /obj/item/organ/heart/beefman/Remove(mob/living/carbon/owner, special = 0)
 	UnregisterSignal(owner, COMSIG_MOB_STATCHANGE)
 	return ..()
 
-/obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/carbon/owner, new_stat)
+/obj/item/organ/heart/beefman/proc/on_change_to_death(mob/living/carbon/owner, new_stat)
 	SIGNAL_HANDLER
 
 	if(new_stat = DEAD)
