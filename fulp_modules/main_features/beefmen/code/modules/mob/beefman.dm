@@ -745,7 +745,7 @@
 /obj/item/organ/heart/beefman
 	name = "Beefman heart"
 	desc = "Though human in appearance, the erractic movement patterns that somehow manage to sustain beefmen biology reveal it's true nature."
-	icon = 'fulp_modules/features/species/icons/clump.dmi'
+	icon = 'fulp_modules/main_features/beefmen/icons/clump.dmi'
 	icon_state = "heart-on"
 
 /obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
@@ -769,7 +769,6 @@
 	anchored = FALSE
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
-	prompt_name = "a newborn beefman"
 	mob_species = /datum/species/beefman
 	short_desc = "You're a beefman, a newborn consequence of a long lost russian experiment."
 	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
