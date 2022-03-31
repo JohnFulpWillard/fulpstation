@@ -763,8 +763,10 @@
 	if(new_stat != DEAD)
 		return
 	else
-		new /obj/effect/mob_spawn/human/mitotic_clump(get_turf(owner))
+		var/birthplace = (get_turf(owner))
 		owner.gib(TRUE, TRUE, TRUE)
+		new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
+
 
 /obj/effect/mob_spawn/human/mitotic_clump
 	name = "Mitotic clump"
