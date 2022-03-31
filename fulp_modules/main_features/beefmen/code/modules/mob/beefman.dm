@@ -10,6 +10,7 @@
 	say_mod = "gurgles"
 	sexes = FALSE
 	default_color = "e73f4e"
+	mutantheart = /obj/item/organ/heart/beefman
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, DYNCOLORS, AGENDER, HAS_FLESH, HAS_BONE)
 	mutant_bodyparts = list("beefcolor" = "Medium Rare","beefmouth" = "Smile1", "beefeyes" = "Olives")
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,
@@ -778,7 +779,7 @@
 	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
 	spawner_job_path = /datum/job/assistant
 
-/obj/effect/mob_spawn/ghost_role/human/mitotic_clump/special(mob/living/carbon/human/spawned_human)
+/obj/effect/mob_spawn/human/mitotic_clump/special(mob/living/carbon/human/spawned_human)
 	. = ..()
 	spawned_human.fully_replace_character_name(null,random_unique_beefman_name())
 	playsound(loc, 'sound/effects/meatslap.ogg', 100, TRUE)
@@ -790,7 +791,7 @@
 	for(var/mob/living/carbon/human/human_in_view in view(spawned_human))
 		human_in_view.adjust_disgust(10)
 
-/obj/effect/mob_spawn/ghost_role/human/mitotic_clump/Initialize(mapload)
+/obj/effect/mob_spawn/human/mitotic_clump/Initialize(mapload)
 	. = ..()
 	var/area/spawner_area = get_area(src)
 	if(spawner_area)
