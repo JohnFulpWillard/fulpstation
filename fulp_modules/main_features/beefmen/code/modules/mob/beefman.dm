@@ -753,7 +753,7 @@
 	. = ..()
 	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_stat_change)
 
-/obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
+/obj/item/organ/heart/beefman/Remove(mob/living/carbon/owner, special = 0)
 	UnregisterSignal(owner, COMSIG_MOB_STATCHANGE)
 	return ..()
 
@@ -764,7 +764,7 @@
 		return
 	else
 		new /obj/effect/mob_spawn/human/mitotic_clump(get_turf(owner))
-		owner.gib()
+		owner.gib(TRUE, TRUE, TRUE)
 
 /obj/effect/mob_spawn/human/mitotic_clump
 	name = "Mitotic clump"
