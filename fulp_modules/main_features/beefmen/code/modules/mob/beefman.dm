@@ -741,3 +741,54 @@
 /datum/sprite_accessory/beef/mouth/smile2
 	name = "Smile2"
 	icon_state = "smile2"
+
+/obj/item/organ/heart/beefman
+	name = "Beefman heart"
+	desc = "Though human in appearance, the erractic movement patterns that somehow manage to sustain beefmen biology reveal it's true nature."
+	icon = 'fulp_modules/features/species/icons/clump.dmi'
+	icon_state = "heart-on"
+
+/obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
+	. = ..()
+	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_stat_change)
+
+/obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/owner, new_stat)
+	SIGNAL_HANDLER
+
+	if(new_stat != DEAD)
+		return
+	else
+		new /obj/effect/mob_spawn/ghost_role/human/mitotic_clump(get_turf(owner))
+		owner.gib()
+
+/obj/effect/mob_spawn/ghost_role/human/mitotic_clump
+	name = "Mitotic clump"
+	desc = "An amorphous mass of meat that seems to be growing rapidly."
+	icon =  'fulp_modules/main_features/beefmen/icons/clump.dmi'
+	icon_state = "clump"
+	anchored = FALSE
+	move_resist = MOVE_FORCE_NORMAL
+	density = FALSE
+	prompt_name = "a newborn beefman"
+	mob_species = /datum/species/beefman
+	you_are_text = "You're a beefman, a newborn consequence of a long lost russian experiment."
+	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
+	spawner_job_path = /datum/job/assistant
+
+/obj/effect/mob_spawn/ghost_role/human/mitotic_clump/special(mob/living/carbon/human/spawned_human)
+	. = ..()
+	spawned_human.fully_replace_character_name(null,random_unique_beefman_name())
+	playsound(loc, 'sound/effects/meatslap.ogg', 100, TRUE)
+	var/list/possible_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_ARM, BODY_ZONE_R_LEG)
+	var/obj/item/bodypart/incomplete_limb = spawned_human.get_bodypart(pick(possible_limbs))
+	incomplete_limb.dismember(BURN)
+	spawned_human.visible_message(span_warning("[spawned_human] emerges from the mitotic clump in a stomach churning manner!"), ignored_mobs = list(spawned_human))
+	//Gross everyone the fuck out
+	for(var/mob/living/carbon/human/human_in_view in view(spawned_human))
+		human_in_view.adjust_disgust(10)
+
+/obj/effect/mob_spawn/ghost_role/human/mitotic_clump/Initialize(mapload)
+	. = ..()
+	var/area/spawner_area = get_area(src)
+	if(spawner_area)
+		notify_ghosts("\A mitotic clump is ready to evolve in \the [spawner_area.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE)
