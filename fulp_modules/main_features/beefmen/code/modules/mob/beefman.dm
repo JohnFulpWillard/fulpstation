@@ -757,13 +757,13 @@
 	UnregisterSignal(owner, COMSIG_MOB_STATCHANGE)
 	return ..()
 
-/obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/owner, new_stat)
+/obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/carbon/owner, new_stat)
 	SIGNAL_HANDLER
 
 	if(new_stat != DEAD)
 		return
 	var/birthplace = (get_turf(owner))
-	owner.gib(TRUE, TRUE, TRUE)
+	owner.gib()
 	new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
 
 
