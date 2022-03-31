@@ -752,13 +752,17 @@
 	. = ..()
 	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_stat_change)
 
+/obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
+	UnregisterSignal(owner, COMSIG_MOB_STATCHANGE)
+	return ..()
+
 /obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/owner, new_stat)
 	SIGNAL_HANDLER
 
 	if(new_stat != DEAD)
 		return
 	else
-		new /obj/effect/mob_spawn/ghost_role/human/mitotic_clump(get_turf(owner))
+		new /obj/effect/mob_spawn/human/mitotic_clump(get_turf(owner))
 		owner.gib()
 
 /obj/effect/mob_spawn/human/mitotic_clump
