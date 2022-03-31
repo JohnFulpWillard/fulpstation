@@ -760,11 +760,10 @@
 /obj/item/organ/heart/beefman/proc/on_stat_change(mob/living/carbon/owner, new_stat)
 	SIGNAL_HANDLER
 
-	if(new_stat != DEAD)
-		return
-	var/birthplace = (get_turf(owner))
-	owner.gib()
-	new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
+	if(new_stat = DEAD)
+		var/birthplace = (get_turf(owner))
+		owner.gib()
+		new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
 
 
 /obj/effect/mob_spawn/human/mitotic_clump
