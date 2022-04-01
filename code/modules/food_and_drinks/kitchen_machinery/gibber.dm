@@ -220,7 +220,7 @@
 			var/turf/gibturf = pick(nearby_turfs)
 			if (!gibturf.density && (src in view(gibturf)))
 				new gibtype(gibturf,i,diseases)
-
+	new /obj/effect/mob_spawn/human/mitotic_clump(T)
 	pixel_x = base_pixel_x //return to its spot after shaking
 	operating = FALSE
 	update_appearance()

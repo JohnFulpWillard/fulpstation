@@ -10,6 +10,7 @@
 	say_mod = "gurgles"
 	sexes = FALSE
 	default_color = "e73f4e"
+	//mutantheart = /obj/item/organ/heart/beefman //This is, once again, broken and I don't know why.
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, DYNCOLORS, AGENDER, HAS_FLESH, HAS_BONE)
 	mutant_bodyparts = list("beefcolor" = "Medium Rare","beefmouth" = "Smile1", "beefeyes" = "Olives")
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER,
@@ -741,3 +742,63 @@
 /datum/sprite_accessory/beef/mouth/smile2
 	name = "Smile2"
 	icon_state = "smile2"
+// This is broken and I'm at a complete loss as to why. It worked fine on the current fulp master and nothing should have changed. Uncomment at your own risk.
+/*
+/obj/item/organ/heart/beefman
+	name = "Beefman heart"
+	desc = "Though human in appearance, the erractic movement patterns that somehow manage to sustain beefmen biology reveal it's true nature."
+	icon = 'fulp_modules/main_features/beefmen/icons/clump.dmi'
+	icon_state = "heart-on"
+
+/obj/item/organ/heart/beefman/Insert(mob/living/carbon/owner, special = 0)
+	. = ..()
+	RegisterSignal(owner, COMSIG_MOB_STATCHANGE, .proc/on_change_to_death)
+
+/obj/item/organ/heart/beefman/Remove(mob/living/carbon/owner, special = 0)
+	UnregisterSignal(owner, COMSIG_MOB_STATCHANGE)
+	return ..()
+
+/obj/item/organ/heart/beefman/proc/on_change_to_death(mob/living/victim, new_stat)
+	SIGNAL_HANDLER
+
+	if(new_stat != DEAD)
+		return
+	var/birthplace = (get_turf(victim))
+	victim.gib()
+	new /obj/effect/mob_spawn/human/mitotic_clump(birthplace)
+*/
+
+/obj/effect/mob_spawn/human/mitotic_clump
+	name = "Mitotic clump"
+	desc = "An amorphous mass of meat that seems to be growing rapidly."
+	icon =  'fulp_modules/main_features/beefmen/icons/clump.dmi'
+	icon_state = "clump"
+	anchored = FALSE
+	move_resist = MOVE_FORCE_NORMAL
+	density = FALSE
+	roundstart = FALSE
+	death = FALSE
+	mob_name = "a newborn beefman"
+	mob_species = /datum/species/beefman
+	short_desc = "You're a beefman, a newborn consequence of a long lost russian experiment."
+	flavour_text = "You're undecooked and your body is incomplete. Do svidaniya."
+	spawner_job_path = /datum/job/assistant
+
+/obj/effect/mob_spawn/human/mitotic_clump/special(mob/living/carbon/human/spawned_human, name)
+	. = ..()
+	spawned_human.fully_replace_character_name(null, random_unique_beefman_name())
+	playsound(loc, 'sound/effects/meatslap.ogg', 100, TRUE)
+	// Chopping off a random limb partially for the sake of the accompaning FXs alone
+	var/list/possible_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_ARM, BODY_ZONE_R_LEG)
+	var/obj/item/bodypart/incomplete_limb = spawned_human.get_bodypart(pick(possible_limbs))
+	incomplete_limb.dismember()
+	spawned_human.visible_message(span_warning("[spawned_human] emerges from the mitotic clump in a stomach churning manner!"), ignored_mobs = list(spawned_human))
+	//Gross everyone the fuck out
+	for(var/mob/living/carbon/human/human_in_view in view(spawned_human))
+		human_in_view.adjust_disgust(10)
+
+/obj/effect/mob_spawn/human/mitotic_clump/Initialize(mapload)
+	. = ..()
+	var/area/spawner_area = get_area(src)
+	if(spawner_area)
+		notify_ghosts("\A mitotic clump is ready to evolve in \the [spawner_area.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE)
