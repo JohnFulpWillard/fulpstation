@@ -33285,7 +33285,7 @@
 /turf/open/floor/carpet/black,
 /area/service/chapel)
 "pvH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/closed/wall/r_wall,
 /area/science/mixing)
 "pvN" = (
@@ -34006,7 +34006,7 @@
 /turf/open/floor/iron/dark,
 /area/service/chapel)
 "pLN" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /turf/closed/wall/r_wall,
 /area/maintenance/port/fore)
 "pLU" = (
