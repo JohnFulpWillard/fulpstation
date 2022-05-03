@@ -24357,7 +24357,7 @@
 "lGo" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	name = "Medbay maintenance access";
+	name = "Chemistry Maintenance";
 	req_one_access_txt = "33"
 	},
 /turf/open/floor/plating,
