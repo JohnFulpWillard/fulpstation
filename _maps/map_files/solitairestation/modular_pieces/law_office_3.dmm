@@ -252,17 +252,23 @@
 	name = "Law Office Camera"
 	},
 /obj/item/kirbyplants/random,
-/turf/open/floor/wood,
-/area/service/lawoffice)
-"P" = (
 /obj/machinery/button/door/directional/south{
 	id = "law3";
 	name = "Public Defender Privacy";
-	pixel_x = -24;
-	pixel_y = 0;
+	pixel_y = 25;
 	req_access_txt = "38"
 	},
-/turf/closed/wall,
+/turf/open/floor/wood,
+/area/service/lawoffice)
+"P" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/button/door/directional/south{
+	id = "law3";
+	name = "Public Defender Privacy";
+	pixel_y = 25;
+	req_access_txt = "38"
+	},
+/turf/open/floor/wood,
 /area/service/lawoffice)
 "Q" = (
 /obj/machinery/light/directional/east,
@@ -348,7 +354,7 @@ a
 "}
 (4,1,1) = {"
 f
-P
+a
 O
 X
 H
@@ -412,7 +418,7 @@ a
 (11,1,1) = {"
 f
 a
-V
+P
 t
 t
 V
@@ -420,7 +426,7 @@ a
 "}
 (12,1,1) = {"
 f
-P
+a
 A
 p
 J
