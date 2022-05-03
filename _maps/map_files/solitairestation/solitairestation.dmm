@@ -3814,7 +3814,6 @@
 	dir = 4;
 	id = "garbage"
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
