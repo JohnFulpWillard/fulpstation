@@ -6401,6 +6401,7 @@
 /area/maintenance/starboard/fore)
 "dpB" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
@@ -7317,15 +7318,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/science/genetics)
-"dLb" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "dLV" = (
 /turf/open/floor/iron/dark/side{
 	dir = 6
@@ -7980,6 +7972,7 @@
 /area/security/brig/upper)
 "eds" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Bar Maintenance";
 	req_access_txt = "12"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8376,6 +8369,7 @@
 /area/maintenance/starboard/fore)
 "emf" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_one_access_txt = "12;28;35"
 	},
 /turf/open/floor/plating,
@@ -9242,6 +9236,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
@@ -12037,6 +12032,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
@@ -13295,6 +13291,7 @@
 /area/security/brig)
 "gHT" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Hydroponics Maintenance";
 	req_one_access_txt = "28;35"
 	},
 /obj/structure/cable,
@@ -15701,6 +15698,7 @@
 /area/engineering/storage_shared)
 "hSr" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Library Maintenance";
 	req_one_access_txt = "12;28;35"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -20721,6 +20719,7 @@
 /area/engineering/atmos)
 "kcr" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Hydroponics Maintenance";
 	req_one_access_txt = "28;35"
 	},
 /turf/open/floor/plating,
@@ -22967,6 +22966,7 @@
 /area/engineering/atmos/pumproom)
 "laX" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
 /obj/structure/disposalpipe/segment,
@@ -38482,12 +38482,13 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/medical/morgue)
 "rNI" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "rNS" = (
@@ -42613,6 +42614,7 @@
 /area/security/brig/upper)
 "txc" = (
 /obj/machinery/door/airlock/maintenance{
+	name = "Service Maintenance";
 	req_access_txt = "73"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -46134,11 +46136,11 @@
 /turf/open/floor/iron/smooth,
 /area/ai_monitored/turret_protected/ai)
 "uNU" = (
+/obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
-/obj/machinery/duct,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "uNV" = (
@@ -47251,6 +47253,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_access_txt = "12"
 	},
 /turf/open/floor/plating,
@@ -47312,6 +47315,7 @@
 "viG" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
 	req_one_access_txt = "12;47"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -50082,12 +50086,13 @@
 /turf/open/space/basic,
 /area/service/lawoffice/upper)
 "wmG" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "wmS" = (
@@ -50209,13 +50214,14 @@
 /turf/open/floor/iron,
 /area/science/mixing)
 "woO" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "woX" = (
@@ -52277,12 +52283,13 @@
 /turf/open/floor/iron,
 /area/hallway/primary/central/aft)
 "xdk" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "xdq" = (
@@ -52357,12 +52364,13 @@
 /turf/open/floor/carpet,
 /area/commons/dorms)
 "xfd" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "xff" = (
@@ -52887,12 +52895,13 @@
 /turf/open/floor/wood,
 /area/security/courtroom)
 "xpE" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/department/security)
 "xpO" = (
@@ -53666,13 +53675,14 @@
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/dorms)
 "xGd" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access_txt = "12"
-	},
 /obj/machinery/duct,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access_txt = "12"
+	},
 /turf/open/floor/plating,
 /area/maintenance/department/security)
 "xGp" = (
@@ -100098,7 +100108,7 @@ lVP
 lVP
 lVP
 dyh
-dLb
+fWv
 lVP
 lVP
 izb
