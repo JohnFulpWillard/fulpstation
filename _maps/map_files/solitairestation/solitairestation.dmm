@@ -1982,14 +1982,6 @@
 	},
 /turf/open/floor/wood,
 /area/commons/vacant_room)
-"bgY" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard)
 "bhx" = (
 /obj/effect/turf_decal/stripes/end,
 /obj/effect/turf_decal/trimline/red/filled/end,
@@ -9626,6 +9618,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/security)
+"eOc" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/closed/wall,
+/area/maintenance/starboard)
 "eOC" = (
 /obj/effect/turf_decal/tile/brown/half{
 	dir = 4
@@ -10750,6 +10748,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/security/checkpoint/engineering)
+"ftO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard)
 "fud" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -14745,6 +14751,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/service/hydroponics)
+"hxY" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/closed/wall,
+/area/maintenance/starboard)
 "hxZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -18346,14 +18358,14 @@
 /turf/open/floor/plating,
 /area/security/checkpoint/supply)
 "jao" = (
-/obj/machinery/door/airlock/security{
-	name = "Security Post - Science";
-	req_access_txt = "63"
-	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/security{
+	name = "Security Post - Cargo";
+	req_access_txt = "63"
+	},
 /turf/open/floor/iron,
 /area/security/checkpoint/supply)
 "jay" = (
@@ -19521,6 +19533,10 @@
 	luminosity = 2
 	},
 /area/ai_monitored/command/nuke_storage)
+"jBZ" = (
+/obj/structure/disposalpipe/segment,
+/turf/closed/wall,
+/area/maintenance/starboard)
 "jCa" = (
 /obj/structure/sign/poster/official/random{
 	pixel_x = -32
@@ -26650,12 +26666,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/central)
-"mCv" = (
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/closed/wall,
-/area/maintenance/starboard)
 "mCw" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "stationawaygate";
@@ -28461,6 +28471,14 @@
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark,
 /area/science/storage)
+"noF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard)
 "noG" = (
 /obj/machinery/button/door/directional/north{
 	id = "stationawaygate";
@@ -30330,14 +30348,6 @@
 "ofS" = (
 /turf/closed/wall,
 /area/service/abandoned_gambling_den)
-"ofU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard)
 "ogr" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Auxiliary Construction Zone";
@@ -33597,6 +33607,14 @@
 	},
 /turf/open/floor/iron/white,
 /area/hallway/primary/central/fore)
+"pCv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard)
 "pCF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -35808,10 +35826,6 @@
 	},
 /turf/open/floor/iron,
 /area/security/prison)
-"qDR" = (
-/obj/structure/disposalpipe/segment,
-/turf/closed/wall,
-/area/maintenance/starboard)
 "qDZ" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
@@ -36134,13 +36148,6 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/black,
 /area/service/chapel)
-"qJB" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard)
 "qKx" = (
 /obj/effect/turf_decal/siding/brown{
 	color = "#FF6700";
@@ -36232,16 +36239,6 @@
 /obj/structure/closet/crate/internals,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
-"qNe" = (
-/obj/structure/disposaloutlet{
-	dir = 4;
-	name = "Virology Disposal Outlet"
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/space/nearstation)
 "qNl" = (
 /turf/closed/wall/r_wall,
 /area/engineering/atmos/pumproom)
@@ -36583,12 +36580,6 @@
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/dark,
 /area/ai_monitored/security/armory)
-"qUV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/closed/wall,
-/area/maintenance/starboard)
 "qVa" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -36960,6 +36951,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
 /area/maintenance/port/aft)
+"rck" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Quartermaster Maintenance";
+	req_one_access_txt = "31"
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "rcu" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/black,
@@ -38478,14 +38476,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/medical/morgue)
-"rNF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard)
 "rNG" = (
 /obj/structure/bodycontainer/morgue{
 	dir = 2
@@ -39373,6 +39363,13 @@
 /obj/structure/chair/wood,
 /turf/open/floor/wood,
 /area/service/abandoned_gambling_den)
+"sgJ" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard)
 "sgR" = (
 /obj/effect/turf_decal/tile/red/half{
 	color = "#FF0000";
@@ -41510,6 +41507,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/hallway/primary/central/aft)
+"taL" = (
+/obj/structure/disposaloutlet{
+	dir = 4;
+	name = "Virology Disposal Outlet"
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space/nearstation)
 "tbe" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -50465,13 +50472,6 @@
 /obj/item/reagent_containers/food/drinks/flask/gold,
 /turf/open/floor/iron/grimy,
 /area/command/heads_quarters/captain/private)
-"wtu" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Quartermaster Maintenance";
-	req_one_access_txt = "31"
-	},
-/turf/open/floor/plating,
-/area/maintenance/starboard/fore)
 "wtv" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
@@ -94183,7 +94183,7 @@ bSv
 caZ
 vdE
 kbV
-wtu
+rck
 cRz
 ipK
 mty
@@ -99141,8 +99141,8 @@ wsc
 wzt
 wGW
 wTy
-qDR
-mCv
+jBZ
+hxY
 dOA
 dOA
 xLs
@@ -99402,7 +99402,7 @@ dOA
 xkz
 xsj
 xCn
-bgY
+pCv
 xVU
 dOA
 ylN
@@ -99659,7 +99659,7 @@ dOA
 xkH
 cwV
 cwV
-ofU
+ftO
 xWr
 dOA
 cwV
@@ -99916,7 +99916,7 @@ dOA
 dOA
 dOA
 cwV
-ofU
+ftO
 xXY
 dOA
 ylO
@@ -100173,7 +100173,7 @@ xaf
 xkO
 dOA
 dOA
-ofU
+ftO
 dOA
 dOA
 bJg
@@ -100430,7 +100430,7 @@ xar
 xlO
 xsz
 xlO
-ofU
+ftO
 cwV
 dOA
 dOA
@@ -100687,7 +100687,7 @@ xas
 xlV
 dOA
 cwV
-ofU
+ftO
 cwV
 dOA
 meC
@@ -100944,8 +100944,8 @@ dOA
 dOA
 dOA
 xlO
-rNF
-qJB
+noF
+sgJ
 dOA
 meC
 vrL
@@ -101202,7 +101202,7 @@ xlW
 dOA
 xlO
 dOA
-qUV
+eOc
 dOA
 meC
 meC
@@ -101459,7 +101459,7 @@ xmn
 xsz
 xlO
 dOA
-qNe
+taL
 meC
 meC
 meC
