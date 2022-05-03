@@ -5688,8 +5688,8 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "cXN" = (
-/obj/structure/plasticflaps/opaque,
 /obj/structure/disposalpipe/segment,
+/obj/structure/plasticflaps/opaque,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "cXU" = (
@@ -6322,6 +6322,10 @@
 	freq = 1400;
 	location = "QM #1"
 	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
 /turf/open/floor/iron,
 /area/cargo/storage)
 "dop" = (
@@ -6340,6 +6344,9 @@
 	dir = 8;
 	freq = 1400;
 	location = "QM #2"
+	},
+/obj/machinery/door/window/left/directional/north{
+	req_access_txt = "31"
 	},
 /turf/open/floor/iron,
 /area/cargo/storage)
@@ -34683,6 +34690,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/engineering/atmos/upper)
+"qbF" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Quartermaster Maintenance";
+	req_one_access_txt = "31"
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "qbJ" = (
 /turf/open/floor/iron/chapel{
 	dir = 4
@@ -48812,7 +48826,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -94091,7 +94104,7 @@ bSv
 caZ
 vdE
 kbV
-cgX
+qbF
 cRz
 ipK
 mty
@@ -96916,7 +96929,7 @@ bbq
 aRI
 lVP
 vdE
-vdE
+iIb
 iIb
 iIb
 iIb
@@ -97172,8 +97185,8 @@ bAZ
 bbt
 aRI
 lVP
-lVP
 vdE
+meC
 meC
 meC
 meC
@@ -97428,9 +97441,9 @@ bsh
 bbq
 bbq
 aRI
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -97685,9 +97698,9 @@ bsi
 bsi
 bsi
 bQZ
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -97759,7 +97772,7 @@ vbn
 xcP
 wnr
 vOM
-wCz
+tEs
 sTc
 sTc
 sTc
@@ -97942,9 +97955,9 @@ bbq
 bbq
 bbq
 aRI
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -98199,9 +98212,9 @@ bbq
 bBE
 bbL
 aRI
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -98456,9 +98469,9 @@ bbq
 bbq
 bbq
 aRI
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -98713,9 +98726,9 @@ bbq
 bCh
 bKc
 aRI
-sQJ
-lVP
+iLx
 vdE
+meC
 meC
 meC
 meC
@@ -98970,15 +98983,15 @@ bbq
 bAt
 bKT
 aRI
-sQJ
-lVP
+iLx
 vdE
-meC
-meC
-meC
-meC
-meC
-meC
+vdE
+vdE
+vdE
+vdE
+vdE
+vdE
+vdE
 vdE
 vdE
 vdE
@@ -99227,15 +99240,15 @@ aRI
 aRI
 aRI
 aRI
-sQJ
+iLx
 lVP
+sQJ
 vdE
-meC
-meC
-meC
-meC
-meC
-meC
+sQJ
+sQJ
+dYD
+dYy
+dpy
 vdE
 dXh
 sQJ
@@ -99486,10 +99499,10 @@ bLz
 vdE
 sQJ
 lVP
+sQJ
 vdE
-vdE
-vdE
-vdE
+fZo
+sQJ
 vdE
 vdE
 vdE
@@ -99744,7 +99757,7 @@ sQJ
 sQJ
 lVP
 sQJ
-sQJ
+vdE
 sQJ
 sQJ
 vdE
