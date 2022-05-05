@@ -2794,7 +2794,7 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /turf/open/floor/iron/dark/corner,
 /area/medical/treatment_center)
 "bBE" = (
@@ -4976,11 +4976,6 @@
 /turf/open/floor/engine/co2,
 /area/engineering/atmos/upper)
 "cHe" = (
-/obj/structure/table/glass,
-/obj/item/reagent_containers/glass/beaker/cryoxadone,
-/obj/item/reagent_containers/glass/beaker/cryoxadone,
-/obj/item/reagent_containers/glass/beaker/cryoxadone,
-/obj/item/wrench/medical,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -4991,6 +4986,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/medical1,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -9113,6 +9109,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/iron/dark,
 /area/medical/storage)
 "eAD" = (
@@ -30802,7 +30800,6 @@
 /turf/open/floor/iron,
 /area/engineering/atmos/upper)
 "oqB" = (
-/obj/structure/closet/secure_closet/medical1,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -32140,7 +32137,7 @@
 /turf/open/floor/plating,
 /area/maintenance/department/security)
 "oUT" = (
-/obj/effect/spawner/structure/window,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/medical/treatment_center)
 "oVb" = (
@@ -40145,6 +40142,7 @@
 	department = "Medbay";
 	name = "Morgue Requests Console"
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/iron/dark/smooth_large,
 /area/medical/morgue)
 "syI" = (
@@ -40439,6 +40437,11 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 10
 	},
+/obj/structure/table/glass,
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
+/obj/item/reagent_containers/glass/beaker/cryoxadone,
+/obj/item/wrench/medical,
 /turf/open/floor/iron/dark,
 /area/medical/treatment_center)
 "sFa" = (
@@ -44229,11 +44232,11 @@
 	dir = 10
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/structure/window{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /turf/open/floor/iron/dark,
 /area/medical/treatment_center)
 "uel" = (
@@ -45280,6 +45283,7 @@
 /obj/structure/table/glass,
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/mask/surgical,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/open/floor/iron/dark/textured_large,
 /area/medical/virology)
 "uxX" = (
@@ -46354,7 +46358,7 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "uRX" = (
-/obj/effect/spawner/structure/window,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/medical/storage)
 "uSa" = (
@@ -47514,7 +47518,7 @@
 /area/command/heads_quarters/hos)
 "vml" = (
 /obj/machinery/status_display/evac/directional/north,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/hallway/primary/central/fore)
 "vmr" = (
 /obj/machinery/duct,
@@ -54350,9 +54354,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/service/abandoned_gambling_den)
-"xRM" = (
-/turf/closed/wall,
-/area/medical/chemistry)
 "xRT" = (
 /obj/machinery/door/firedoor/heavy,
 /obj/effect/spawner/structure/window/reinforced,
@@ -84462,10 +84463,10 @@ pVE
 kDk
 mjL
 sGj
-sfa
-sfa
-sfa
-sfa
+ovP
+ovP
+ovP
+ovP
 xlq
 mOr
 mvZ
@@ -84719,15 +84720,15 @@ bEh
 sfa
 wfo
 sGj
-xRM
+nZm
 lRU
 vBM
-sfa
-wyd
-wyd
-wyd
-wyd
-wyd
+ovP
+tiY
+tiY
+tiY
+tiY
+tiY
 tiY
 uNV
 oAl
@@ -84976,7 +84977,7 @@ yaJ
 yaJ
 wfo
 sGj
-xRM
+nZm
 lRT
 xBo
 mph
@@ -85490,7 +85491,7 @@ kro
 yaJ
 bEh
 sGj
-xRM
+nZm
 hHr
 rny
 rny
@@ -85747,7 +85748,7 @@ cTE
 yaJ
 bEh
 sGj
-xRM
+nZm
 xZl
 miv
 mpp
@@ -86004,7 +86005,7 @@ etD
 yaJ
 bEh
 sGj
-xRM
+nZm
 lTg
 miA
 mpv
@@ -86261,7 +86262,7 @@ pJk
 yaJ
 bEh
 sGj
-xRM
+nZm
 lTw
 miA
 mpv
@@ -86518,7 +86519,7 @@ nnQ
 yaJ
 bEh
 sGj
-xRM
+nZm
 lTD
 miA
 mpK
@@ -86775,7 +86776,7 @@ yaJ
 yaJ
 bEh
 sGj
-xRM
+nZm
 xBo
 miE
 mpM
@@ -86785,7 +86786,7 @@ neQ
 nvj
 xBo
 xBo
-yaQ
+frx
 oEo
 oSC
 peB
@@ -87032,7 +87033,7 @@ krK
 yaJ
 bEh
 sGj
-xRM
+nZm
 xBo
 miF
 miF
@@ -87042,7 +87043,7 @@ nfO
 nvj
 xBo
 xBo
-yaQ
+frx
 oEz
 oSE
 peF
@@ -87289,7 +87290,7 @@ vwQ
 yaJ
 bEh
 sGj
-xRM
+nZm
 xZl
 xBo
 xBo
@@ -87299,7 +87300,7 @@ xBo
 kKU
 nNe
 oba
-yaQ
+frx
 oEL
 uZY
 uZY
@@ -87546,7 +87547,7 @@ krZ
 yaJ
 bEh
 sGj
-xRM
+nZm
 xBo
 xBo
 xBo
@@ -87556,7 +87557,7 @@ xBo
 kKU
 xBo
 obL
-yaQ
+frx
 oFd
 uZY
 uZY
@@ -87803,7 +87804,7 @@ ksn
 yaJ
 bEh
 sGj
-xRM
+nZm
 hHr
 xBo
 xBo
@@ -87813,7 +87814,7 @@ xBo
 kKU
 xBo
 xBo
-yaQ
+frx
 hnH
 uZY
 uZY
@@ -88060,7 +88061,7 @@ yaJ
 yaJ
 bEh
 sGj
-xRM
+nZm
 xBo
 miU
 mqO
@@ -88070,7 +88071,7 @@ aed
 kKU
 weY
 xBo
-yaQ
+frx
 tGC
 tST
 uGc
@@ -88317,16 +88318,16 @@ ktJ
 sfa
 sfa
 kgB
-xRM
+nZm
 lUd
-xRM
-xRM
-xRM
-xRM
-xRM
+nZm
+nZm
+nZm
+nZm
+nZm
 jua
-xRM
-xRM
+nZm
+nZm
 vml
 uPf
 uPf
