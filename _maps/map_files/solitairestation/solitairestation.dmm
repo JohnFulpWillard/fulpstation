@@ -40896,7 +40896,6 @@
 	department = "Medbay";
 	name = "Morgue Requests Console"
 	},
-/obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/iron/dark/smooth_large,
 /area/medical/morgue)
 "syI" = (
