@@ -4964,6 +4964,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
 "cDs" = (
@@ -7332,9 +7333,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "dHh" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/computer/security/telescreen/interrogation{
 	dir = 8;
@@ -7486,13 +7484,14 @@
 /turf/open/floor/iron/recharge_floor,
 /area/cargo/warehouse)
 "dJG" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/trimline/red/filled/corner,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "dJO" = (
@@ -8222,10 +8221,10 @@
 /turf/open/floor/iron,
 /area/security/prison)
 "edb" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
+/obj/machinery/status_display/evac/directional/east,
+/obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 4
 	},
-/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "eds" = (
@@ -9554,9 +9553,6 @@
 /turf/open/floor/iron,
 /area/maintenance/solars/starboard/fore)
 "eEw" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/security/brig/upper)
@@ -13526,9 +13522,8 @@
 /turf/open/floor/iron,
 /area/tcommsat/computer)
 "gEq" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden{
+	dir = 4
 	},
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
@@ -14546,6 +14541,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/warning{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
 "hhc" = (
@@ -16931,18 +16927,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
-"imO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/machinery/navbeacon{
-	codes_txt = "delivery;dir=8";
-	dir = 8;
-	freq = 1400;
-	location = "Security"
-	},
-/turf/open/floor/iron,
-/area/security/brig/upper)
 "imT" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/bot_red,
@@ -19194,9 +19178,6 @@
 /turf/open/floor/iron,
 /area/engineering/storage_shared)
 "jip" = (
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	dir = 4
-	},
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron,
 /area/security/brig/upper)
@@ -20854,6 +20835,7 @@
 	listening = 0;
 	name = "Interrogation Intercom"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/grimy,
 /area/security/interrogation)
 "jUo" = (
@@ -23479,9 +23461,6 @@
 /area/hallway/secondary/service)
 "kWT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 4
-	},
 /obj/structure/disposalpipe/junction/flip{
 	dir = 1
 	},
@@ -28503,11 +28482,11 @@
 /turf/open/floor/iron/grimy,
 /area/commons/dorms)
 "mYo" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "mYE" = (
@@ -30321,12 +30300,9 @@
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos/upper)
 "nMe" = (
-/obj/effect/turf_decal/trimline/red/filled/corner,
-/obj/effect/turf_decal/trimline/red/filled/corner{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "nMi" = (
@@ -34214,6 +34190,7 @@
 	dir = 10
 	},
 /obj/machinery/light/directional/east,
+/obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "pwb" = (
@@ -37590,11 +37567,12 @@
 /turf/open/floor/iron/dark,
 /area/medical/pharmacy)
 "qWe" = (
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 6
-	},
 /obj/machinery/vending/cigarette,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "qWk" = (
@@ -41697,6 +41675,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "sLe" = (
@@ -42578,7 +42559,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/airless,
 /area/space/nearstation)
 "tbe" = (
 /obj/machinery/duct,
@@ -43694,8 +43675,10 @@
 /turf/open/floor/iron,
 /area/commons/fitness/recreation)
 "twO" = (
-/obj/effect/turf_decal/trimline/red/filled/corner,
 /obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/trimline/red/filled/corner{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/security/brig/upper)
 "twY" = (
@@ -45193,7 +45176,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/medical/virology)
 "uct" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
@@ -51019,6 +51001,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
 "wjx" = (
@@ -77226,7 +77209,7 @@ jMl
 xWN
 unt
 oqP
-gEq
+exO
 uct
 lFn
 lOm
@@ -77485,7 +77468,7 @@ bWs
 jdX
 hsT
 aZX
-lFL
+gEq
 gSI
 maU
 nFs
@@ -96819,7 +96802,7 @@ icW
 hff
 qPI
 uwg
-imO
+kkh
 kkh
 kkh
 vRP
