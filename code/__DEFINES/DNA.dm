@@ -2,6 +2,8 @@
 
 #define CHECK_DNA_AND_SPECIES(C) if(!(C.dna?.species)) return
 
+// HELP x2
+
 //Defines copying names of mutations in all cases, make sure to change this if you change mutation's type
 #define ACIDFLESH /datum/mutation/human/acidflesh
 #define ANTENNA /datum/mutation/human/antenna
