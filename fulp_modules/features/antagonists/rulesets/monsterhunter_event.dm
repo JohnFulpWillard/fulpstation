@@ -93,8 +93,8 @@ GLOBAL_LIST_INIT(monster_antagonist_types, list(
 		if(GLOB.monster_antagonist_types.Find(monster.type))
 			count++
 
-//	if((MINIMUM_MONSTERS_REQUIRED - count) + 1 > living_players.len)
-//		return FALSE
+	if((MINIMUM_MONSTERS_REQUIRED - count) + 1 > living_players.len)
+		return FALSE
 	//don't continue endlessly if you just can't do it, otherwise you'll freeze/crash the whole game.
 	var/attempts
 	var/list/attempted_list = living_players.Copy()
