@@ -5,7 +5,7 @@
 /datum/antagonist/bloodsucker/proc/LifeTick(mob/living/source, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
 
-	if(isbrain(owner.current))
+	if(isbrain(owner.current) || issilicon(owner.current)s)
 		return
 	if(!owner)
 		INVOKE_ASYNC(src, PROC_REF(HandleDeath))
