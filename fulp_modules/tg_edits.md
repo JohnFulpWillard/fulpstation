@@ -29,8 +29,6 @@
 - _maps/shuttles/emergency_selene.dmm
 - _maps/shuttles/mining_selene.dmm
 - _maps/selenestation.json
-- _maps/map_files/PubbyStation.dmm
-- _maps/pubbystation.json
 
 #### TGUI
 - tgui/packages/tgui/interfaces/PreferencesMenu/antagonists/antagonists/bloodsucker.ts
