@@ -62369,10 +62369,8 @@
 /area/station/maintenance/department/science/xenobiology)
 "rlk" = (
 /obj/machinery/power/apc/auto_name/directional/south,
-/obj/effect/turf_decal/stripes/end{
-	dir = 1
-	},
 /obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "rlM" = (
