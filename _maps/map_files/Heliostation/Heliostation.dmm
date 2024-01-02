@@ -74578,7 +74578,6 @@
 "whH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/shuttle_engine/propulsion,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse/upper)
 "wib" = (
