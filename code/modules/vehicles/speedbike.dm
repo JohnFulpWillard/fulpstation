@@ -17,7 +17,8 @@
 
 /obj/vehicle/ridden/space/speedbike/Initialize(mapload)
 	. = ..()
-	overlay = mutable_appearance(icon, overlay_state, ABOVE_MOB_LAYER)
+	if(!overlay)
+		overlay = mutable_appearance(icon, overlay_state, ABOVE_MOB_LAYER)
 	add_overlay(overlay)
 	var/datum/component/riding/D = LoadComponent(/datum/component/riding)
 	D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, -8), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-10, 5), TEXT_WEST = list( 10, 5)))
@@ -44,7 +45,7 @@
 	icon = 'icons/obj/car.dmi'
 	icon_state = "speedwagon"
 	layer = LYING_MOB_LAYER
-	var/static/mutable_appearance/overlay = mutable_appearance(icon, "speedwagon_cover", ABOVE_MOB_LAYER)
+	var/static/mutable_appearance/overlay = mutable_appearance('icons/obj/car.dmi', "speedwagon_cover", ABOVE_MOB_LAYER)
 	max_buckled_mobs = 4
 	var/crash_all = FALSE //CHAOS
 	pixel_y = -48
