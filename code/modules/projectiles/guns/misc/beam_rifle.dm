@@ -70,11 +70,18 @@
 	var/current_zoom_x = 0
 	var/current_zoom_y = 0
 
-	var/static/image/charged_overlay = image(icon = 'icons/obj/guns/energy.dmi', icon_state = "esniper_charged")
-	var/static/image/drained_overlay = image(icon = 'icons/obj/guns/energy.dmi', icon_state = "esniper_empty")
+	var/static/image/charged_overlay
+	var/static/image/drained_overlay
 
 	var/datum/action/item_action/zoom_lock_action/zoom_lock_action
 	var/datum/component/mobhook
+
+/obj/item/gun/energy/beam_rifle/Initialize()
+	. = ..()
+	if(isnull(charged_overlay))
+		charged_overlay = image(icon = 'icons/obj/guns/energy.dmi', icon_state = "esniper_charged")
+	if(isnull(drained_overlay))
+		drained_overlay = image(icon = 'icons/obj/guns/energy.dmi', icon_state = "esniper_empty")
 
 /obj/item/gun/energy/beam_rifle/debug
 	delay = 0
