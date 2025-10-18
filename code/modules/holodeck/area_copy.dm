@@ -1,7 +1,7 @@
 //Vars that will not be copied when using /DuplicateObject
 GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	"tag", "datum_components", "area", "type", "loc", "locs", "vars", "parent", "parent_type", "verbs", "ckey", "key",
-	"power_supply", "contents", "reagents", "stat", "x", "y", "z", "group", "atmos_adjacent_turfs", "comp_lookup"
+	"power_supply", "contents", "reagents", "stat", "x", "y", "z", "group", "atmos_adjacent_turfs", "comp_lookup", "pixloc"
 	))
 
 /proc/DuplicateObject(atom/original, perfectcopy = TRUE, sameloc, atom/newloc = null, nerf, holoitem)
@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	return O
 
 
-/area/proc/copy_contents_to(var/area/A , var/platingRequired = 0, var/nerf_weapons = 0 )
+/area/proc/copy_contents_to(area/A, platingRequired = 0, nerf_weapons = 0)
 	//Takes: Area. Optional: If it should copy to areas that don't have plating
 	//Returns: Nothing.
 	//Notes: Attempts to move the contents of one area to another area.
@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	var/src_min_x = 99999
 	var/src_min_y = 99999
-	var/list/refined_src = new/list()
+	var/list/refined_src = list()
 
 	for (var/turf/T in turfs_src)
 		src_min_x = min(src_min_x,T.x)
@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	var/trg_min_x = 99999
 	var/trg_min_y = 99999
-	var/list/refined_trg = new/list()
+	var/list/refined_trg = list()
 
 	for (var/turf/T in turfs_trg)
 		trg_min_x = min(trg_min_x,T.x)
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	for (var/turf/T in turfs_trg)
 		refined_trg["[T.x - trg_min_x].[T.y - trg_min_y]"] = T
 
-	var/list/toupdate = new/list()
+	var/list/toupdate = list()
 
 	var/copiedobjs = list()
 
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 		B.icon_state = old_icon_state1
 
 		for(var/obj/O in T)
-			var/obj/O2 = DuplicateObject(O , perfectcopy=TRUE, newloc = B, nerf=nerf_weapons, holoitem=TRUE)
+			var/obj/O2 = DuplicateObject(O, perfectcopy=TRUE, newloc = B, nerf=nerf_weapons, holoitem=TRUE)
 			if(!O2)
 				continue
 			copiedobjs += O2.GetAllContents()
