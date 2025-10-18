@@ -120,7 +120,7 @@ export const chatMiddleware = (store) => {
       }
 
       const sequence_count = sequences.length;
-      seq_check: if (sequence_count > 0) {
+      if (sequence_count > 0) {
         if (sequences_requested.includes(sequence)) {
           sequences_requested.splice(sequences_requested.indexOf(sequence), 1);
           // if we are receiving a message we requested, we can stop reliability checks

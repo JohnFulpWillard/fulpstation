@@ -19,6 +19,9 @@ const connectionsMatch = (a, b) =>
 export const telemetryMiddleware = (store) => {
   let telemetry;
   let wasRequestedWithPayload;
+  const duplicateConnection = telemetry.connections.find((conn) =>
+    connectionsMatch(conn, client),
+  );
   return (next) => (action) => {
     const { type, payload } = action;
     // Handle telemetry requests
@@ -56,10 +59,6 @@ export const telemetryMiddleware = (store) => {
         }
         // Append a connection record
         let telemetryMutated = false;
-
-        const duplicateConnection = telemetry.connections.find((conn) =>
-          connectionsMatch(conn, client),
-        );
         if (!duplicateConnection) {
           telemetryMutated = true;
           telemetry.connections.unshift(client);
