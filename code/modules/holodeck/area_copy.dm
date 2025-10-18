@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	"power_supply", "contents", "reagents", "stat", "x", "y", "z", "group", "atmos_adjacent_turfs", "comp_lookup",
 	"client_mobs_in_contents", "bodyparts", "internal_organs", "hand_bodyparts", "overlays", "overlays_standing", "hud_list",
 	"actions", "AIStatus", "appearance", "managed_overlays", "managed_vis_overlays", "computer_id", "lastKnownIP", "implants",
-	"tgui_shared_states"
+	"tgui_shared_states", "pixloc",
 	))
 
 /proc/DuplicateObject(atom/original, perfectcopy = TRUE, sameloc, atom/newloc = null, nerf, holoitem)
@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	var/src_min_x = 99999
 	var/src_min_y = 99999
-	var/list/refined_src = new/list()
+	var/list/refined_src = list()
 
 	for (var/turf/T in turfs_src)
 		src_min_x = min(src_min_x,T.x)
@@ -88,7 +88,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	var/trg_min_x = 99999
 	var/trg_min_y = 99999
-	var/list/refined_trg = new/list()
+	var/list/refined_trg = list()
 
 	for (var/turf/T in turfs_trg)
 		trg_min_x = min(trg_min_x,T.x)
@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	for (var/turf/T in turfs_trg)
 		refined_trg["[T.x - trg_min_x].[T.y - trg_min_y]"] = T
 
-	var/list/toupdate = new/list()
+	var/list/toupdate = list()
 
 	var/copiedobjs = list()
 
