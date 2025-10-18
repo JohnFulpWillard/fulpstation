@@ -1,6 +1,6 @@
-import { paginate } from 'common/collections';
 import { BooleanLike } from 'common/react';
 
+import { paginate } from '../../common/collections';
 import { useBackend, useLocalState } from '../backend';
 import { Button, Icon, Input, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';

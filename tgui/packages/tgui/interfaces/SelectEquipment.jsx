@@ -1,4 +1,4 @@
-import { filter, map, sortBy, uniq } from 'common/collections';
+import { filter, map, sortBy, uniq } from '../../common/collections';
 import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
 import { useState } from 'react';

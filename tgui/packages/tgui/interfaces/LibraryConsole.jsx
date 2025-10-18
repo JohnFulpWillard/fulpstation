@@ -1,4 +1,4 @@
-import { map, sortBy } from 'common/collections';
+import { map, sortBy } from '../../common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { useState } from 'react';

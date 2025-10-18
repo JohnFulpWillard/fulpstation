@@ -1,7 +1,7 @@
-import { sortBy } from 'common/collections';
 import { BooleanLike } from 'common/react';
 import { toTitleCase } from 'common/string';
 
+import { sortBy } from '../../common/collections';
 import { useBackend } from '../backend';
 import {
   Button,

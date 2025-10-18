@@ -1,4 +1,4 @@
-import { filter, uniqBy } from 'common/collections';
+import { filter, uniqBy } from '../../../common/collections';
 import { flow } from 'common/fp';
 
 import { useBackend } from '../../backend';

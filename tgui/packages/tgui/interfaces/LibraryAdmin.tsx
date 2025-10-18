@@ -1,8 +1,8 @@
-import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { capitalize } from 'common/string';
 import { useState } from 'react';
 
+import { map, sortBy } from '../../common/collections';
 import { useBackend, useLocalState } from '../backend';
 import {
   Box,

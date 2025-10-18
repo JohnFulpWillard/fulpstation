@@ -1,4 +1,4 @@
-import { uniqBy } from 'common/collections';
+import { uniqBy } from '../../../common/collections';
 
 import { useBackend } from '../../backend';
 import {

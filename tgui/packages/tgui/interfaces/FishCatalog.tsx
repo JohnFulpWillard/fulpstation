@@ -1,9 +1,9 @@
-import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { capitalize } from 'common/string';
 import { useState } from 'react';
 
+import { sortBy } from '../../common/collections';
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, Section, Stack } from '../components';
 import { Window } from '../layouts';

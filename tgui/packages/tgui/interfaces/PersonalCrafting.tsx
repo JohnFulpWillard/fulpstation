@@ -1,9 +1,9 @@
-import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { BooleanLike, classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { useState } from 'react';
 
+import { filter, sortBy } from '../../common/collections';
 import { useBackend } from '../backend';
 import {
   Box,

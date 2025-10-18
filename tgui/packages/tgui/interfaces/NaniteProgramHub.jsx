@@ -1,4 +1,4 @@
-import { map } from 'common/collections';
+import { map } from '../../common/collections';
 import { Fragment } from 'react';
 import { useBackend, useSharedState } from '../backend';
 import { Button, Flex, LabeledList, NoticeBox, Section, Tabs } from '../components';

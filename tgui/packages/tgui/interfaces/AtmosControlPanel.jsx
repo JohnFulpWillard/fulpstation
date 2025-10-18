@@ -1,4 +1,4 @@
-import { map, sortBy } from 'common/collections';
+import { map, sortBy } from '../../common/collections';
 import { flow } from 'common/fp';
 
 import { useBackend } from '../backend';

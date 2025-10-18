@@ -7,7 +7,6 @@
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Box, Button } from '../components';
-import { refocusLayout } from './Layout';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {

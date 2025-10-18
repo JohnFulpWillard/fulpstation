@@ -1,4 +1,4 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from '../../../common/collections';
 import { useState } from 'react';
 
 import { Button, Flex, Grid, Section, Tabs } from '../../components';

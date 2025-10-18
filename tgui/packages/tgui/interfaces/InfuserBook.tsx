@@ -1,7 +1,7 @@
-import { paginate, range } from 'common/collections';
 import { multiline } from 'common/string';
 import { useState } from 'react';
 
+import { paginate, range } from '../../common/collections';
 import { useBackend } from '../backend';
 import { BlockQuote, Box, Button, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';

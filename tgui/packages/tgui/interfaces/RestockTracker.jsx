@@ -1,4 +1,4 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from '../../common/collections';
 import { round } from 'common/math';
 
 import { useBackend } from '../backend';

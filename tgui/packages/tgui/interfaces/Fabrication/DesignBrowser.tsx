@@ -1,7 +1,7 @@
-import { sortBy } from 'common/collections';
 import { classes } from 'common/react';
 import { ReactNode } from 'react';
 
+import { sortBy } from '../../../common/collections';
 import { useSharedState } from '../../backend';
 import { Dimmer, Icon, Section, Stack, VirtualList } from '../../components';
 import { SearchBar } from '../common/SearchBar';

@@ -1,6 +1,6 @@
-import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 
+import { sortBy } from '../../common/collections';
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import {

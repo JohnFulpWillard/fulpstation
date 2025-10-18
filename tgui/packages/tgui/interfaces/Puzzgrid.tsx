@@ -1,7 +1,7 @@
-import { range } from 'common/collections';
 import { BooleanLike } from 'common/react';
 import { PropsWithChildren } from 'react';
 
+import { range } from '../../common/collections';
 import { useBackend } from '../backend';
 import { Box, Button, FitText, Stack } from '../components';
 import { Window } from '../layouts';

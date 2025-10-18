@@ -1,4 +1,4 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from '../../common/collections';
 import { flow } from 'common/fp';
 import { toFixed } from 'common/math';
 import { useBackend } from '../backend';

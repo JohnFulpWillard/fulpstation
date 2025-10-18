@@ -1,8 +1,8 @@
-import { sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { classes, shallowDiffers } from 'common/react';
 import { Component, createRef, RefObject } from 'react';
 
+import { sortBy } from '../../common/collections';
 import { resolveAsset } from '../assets';
 import { useBackend, useLocalState } from '../backend';
 import {

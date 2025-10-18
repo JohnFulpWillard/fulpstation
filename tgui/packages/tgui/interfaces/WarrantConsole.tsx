@@ -1,6 +1,6 @@
-import { sortBy } from 'common/collections';
 import { useState } from 'react';
 
+import { sortBy } from '../../common/collections';
 import { useBackend, useLocalState } from '../backend';
 import {
   BlockQuote,

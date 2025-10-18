@@ -1,9 +1,8 @@
-import { sortBy } from 'common/collections';
-
+import { sortBy } from '../../common/collections';
 import { useBackend } from '../backend';
 import { Box, Button, Section } from '../components';
 import { Window } from '../layouts';
-import { Beaker, BeakerContents } from './common/BeakerContents';
+import { BeakerContents } from './common/BeakerContents';
 
 type DispensableReagent = {
   title: string;
@@ -11,7 +10,7 @@ type DispensableReagent = {
   volume: number;
 };
 
-type TransferableBeaker = Beaker & {
+type TransferableBeaker = {
   transferAmounts: number[];
 };
 

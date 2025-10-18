@@ -4,9 +4,9 @@
  * @license MIT
  */
 
-import { map, zipWith } from 'common/collections';
 import { Component, createRef, RefObject } from 'react';
 
+import { map, zipWith } from '../../common/collections';
 import { Box, BoxProps } from './Box';
 
 type Props = {

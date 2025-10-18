@@ -1,9 +1,9 @@
-import { filter, map, reduce, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { clamp } from 'common/math';
 import { createSearch } from 'common/string';
 import { useState } from 'react';
 
+import { filter, map, reduce, sortBy } from '../../common/collections';
 import { useBackend } from '../backend';
 import {
   Box,

@@ -1,4 +1,3 @@
-import { filter, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { useState } from 'react';
 import { useBackend, useLocalState } from 'tgui/backend';
@@ -13,6 +12,7 @@ import {
   Tabs,
 } from 'tgui/components';
 
+import { filter, sortBy } from '../../../common/collections';
 import { JOB2ICON } from '../common/JobToIcon';
 import { isRecordMatch } from '../SecurityRecords/helpers';
 import { MedicalRecord, MedicalRecordData } from './types';

@@ -1,4 +1,4 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from '../../common/collections';
 
 import { useBackend } from '../backend';
 import {

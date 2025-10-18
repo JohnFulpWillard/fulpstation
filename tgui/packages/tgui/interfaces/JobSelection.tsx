@@ -1,7 +1,7 @@
-import { deepMerge } from 'common/collections';
 import { Color } from 'common/color';
 import { BooleanLike } from 'common/react';
 
+import { deepMerge } from '../../common/collections';
 import { useBackend } from '../backend';
 import {
   Box,
