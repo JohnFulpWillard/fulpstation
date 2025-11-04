@@ -7686,14 +7686,14 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "aPB" = (
-/obj/structure/closet/secure_closet/paramedic,
-/obj/effect/turf_decal/trimline/blue/filled/shrink_ccw{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/extinguisher_cabinet/directional/east,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/medical/paramedic)
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/central)
 "aPC" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Medbay - Northeast Hall";
@@ -55156,6 +55156,23 @@
 /obj/effect/spawner/random/structure/table,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
+"oeB" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/suit/jacket/straight_jacket,
+/obj/item/clothing/glasses/blindfold,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/mask/muzzle,
+/obj/machinery/camera/directional/south{
+	c_tag = "Medbay - Patient's Room";
+	name = "Medbay Camera";
+	network = list("ss13","medbay")
+	},
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/freezer,
+/area/station/medical/patients_rooms)
 "oeE" = (
 /obj/structure/sign/poster/contraband/random/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -62076,20 +62093,11 @@
 /turf/open/floor/plastic,
 /area/station/commons/toilet/auxiliary)
 "qLz" = (
-/obj/structure/table/reinforced,
-/obj/item/clothing/suit/jacket/straight_jacket,
-/obj/item/clothing/glasses/blindfold,
-/obj/item/clothing/ears/earmuffs,
-/obj/item/clothing/mask/muzzle,
-/obj/machinery/camera/directional/south{
-	c_tag = "Medbay - Patient's Room";
-	name = "Medbay Camera";
-	network = list("ss13","medbay")
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 4
-	},
-/obj/machinery/airalarm/directional/north,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
 /turf/open/floor/iron/freezer,
 /area/station/medical/patients_rooms)
 "qLZ" = (
@@ -71614,15 +71622,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint)
-"utt" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/central)
 "utD" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 4
@@ -73608,14 +73607,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/upper)
-"vmP" = (
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 1
-	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/turf/open/floor/iron/freezer,
-/area/station/medical/patients_rooms)
 "vmY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -78916,6 +78907,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
+"xom" = (
+/obj/structure/closet/secure_closet/paramedic,
+/obj/effect/turf_decal/trimline/blue/filled/shrink_ccw{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/medical/paramedic)
 "xox" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8;
@@ -125060,7 +125060,7 @@ wxs
 gcL
 uTP
 ovA
-aPB
+xom
 oLo
 jTF
 hWb
@@ -128131,12 +128131,12 @@ aEd
 aEd
 hIt
 aEd
-vmP
+qLz
 aNn
 aTz
 iHB
 qkw
-utt
+aPB
 aSg
 aSX
 cNm
@@ -128388,7 +128388,7 @@ iOT
 aEd
 bwG
 aEd
-qLz
+oeB
 dJu
 hGn
 twB
