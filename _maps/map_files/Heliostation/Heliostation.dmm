@@ -7686,14 +7686,14 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "aPB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/closet/secure_closet/paramedic,
+/obj/effect/turf_decal/trimline/blue/filled/shrink_ccw{
+	dir = 8
 	},
-/obj/structure/cable,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/central)
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/dark,
+/area/station/medical/paramedic)
 "aPC" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Medbay - Northeast Hall";
@@ -22202,6 +22202,15 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
+"cvT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/central)
 "cvU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/red,
@@ -26339,6 +26348,23 @@
 "cWI" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/electrical)
+"cWM" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/suit/jacket/straight_jacket,
+/obj/item/clothing/glasses/blindfold,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/mask/muzzle,
+/obj/machinery/camera/directional/south{
+	c_tag = "Medbay - Patient's Room";
+	name = "Medbay Camera";
+	network = list("ss13","medbay")
+	},
+/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/freezer,
+/area/station/medical/patients_rooms)
 "cWS" = (
 /obj/machinery/door/window/left/directional/west{
 	name = "Janitorial Delivery";
@@ -35613,23 +35639,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/engineering/break_room)
-"gKS" = (
-/obj/structure/table/reinforced,
-/obj/item/clothing/suit/jacket/straight_jacket,
-/obj/item/clothing/glasses/blindfold,
-/obj/item/clothing/ears/earmuffs,
-/obj/item/clothing/mask/muzzle,
-/obj/machinery/camera/directional/south{
-	c_tag = "Medbay - Patient's Room";
-	name = "Medbay Camera";
-	network = list("ss13","medbay")
-	},
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 4
-	},
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/freezer,
-/area/station/medical/patients_rooms)
 "gLp" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/table,
@@ -79863,15 +79872,6 @@
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted,
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
-"xFp" = (
-/obj/structure/closet/secure_closet/paramedic,
-/obj/effect/turf_decal/trimline/blue/filled/shrink_ccw{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet/directional/east,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/dark,
-/area/station/medical/paramedic)
 "xFs" = (
 /turf/open/misc/asteroid,
 /area/station/security/prison/safe/exterior)
@@ -125060,7 +125060,7 @@ wxs
 gcL
 uTP
 ovA
-xFp
+aPB
 oLo
 jTF
 hWb
@@ -128136,7 +128136,7 @@ aNn
 aTz
 iHB
 qkw
-aPB
+cvT
 aSg
 aSX
 cNm
@@ -128388,7 +128388,7 @@ iOT
 aEd
 bwG
 aEd
-gKS
+cWM
 dJu
 hGn
 twB
