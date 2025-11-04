@@ -8068,6 +8068,16 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
+"aRa" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
+/obj/machinery/wall_healer/directional/west,
+/turf/open/floor/iron,
+/area/station/engineering/hallway)
 "aRd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10532,6 +10542,7 @@
 /obj/structure/closet/wardrobe/mixed,
 /obj/effect/landmark/start/hangover,
 /obj/machinery/light/directional/north,
+/obj/structure/noticeboard/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "baN" = (
@@ -11438,6 +11449,10 @@
 /obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/theatre)
+"beX" = (
+/obj/machinery/wall_healer/directional/west,
+/turf/open/floor/iron,
+/area/station/hallway/primary/fore)
 "bfb" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -12658,11 +12673,8 @@
 "bjK" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck,
-/obj/structure/noticeboard{
-	dir = 4;
-	pixel_x = -32
-	},
 /obj/structure/cable,
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron,
 /area/station/commons/lounge)
 "bjL" = (
@@ -13613,6 +13625,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "bnq" = (
@@ -19671,6 +19684,7 @@
 /area/station/science/ordnance)
 "bVQ" = (
 /obj/machinery/light/directional/north,
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
 "bVR" = (
@@ -21973,7 +21987,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/obj/structure/sign/poster/official/safety_report/directional/north,
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "ctK" = (
@@ -26519,6 +26533,7 @@
 /area/station/hallway/primary/aft)
 "cXF" = (
 /obj/structure/closet/emcloset,
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "cXG" = (
@@ -28440,6 +28455,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
 	},
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "dJz" = (
@@ -40311,6 +40327,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/prison/mess)
+"ivJ" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/machinery/wall_healer/directional/south,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/command)
 "ivO" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -41388,6 +41409,7 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
+/obj/machinery/wall_healer/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "iRO" = (
@@ -42879,6 +42901,7 @@
 /obj/structure/chair{
 	dir = 8
 	},
+/obj/machinery/wall_healer/directional/south,
 /turf/open/floor/plating,
 /area/station/medical/abandoned)
 "jtz" = (
@@ -43294,6 +43317,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/cable,
+/obj/machinery/wall_healer/directional/south,
 /turf/open/floor/wood,
 /area/station/engineering/break_room)
 "jBr" = (
@@ -44245,6 +44269,7 @@
 	c_tag = "Science - Xenobiology";
 	network = list("ss13","rd","xeno")
 	},
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
 "jUo" = (
@@ -47683,6 +47708,7 @@
 "lnm" = (
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
+/obj/machinery/wall_healer/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "lnp" = (
@@ -48204,6 +48230,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "lyM" = (
@@ -53786,6 +53813,7 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
 	},
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "nGI" = (
@@ -54466,6 +54494,7 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/cable,
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron/freezer,
 /area/station/security/medical)
 "nRb" = (
@@ -57792,6 +57821,15 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/service)
+"pbi" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/machinery/wall_healer/directional/east,
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/central)
 "pbj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -59739,6 +59777,7 @@
 	dir = 1
 	},
 /obj/machinery/light/dim/directional/west,
+/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "pQu" = (
@@ -74239,6 +74278,7 @@
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 1
 	},
+/obj/machinery/wall_healer/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/breakroom)
 "vxb" = (
@@ -76880,6 +76920,7 @@
 "wyd" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/secure_safe/caps_spare,
+/obj/machinery/wall_healer/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "wyj" = (
@@ -112515,7 +112556,7 @@ oqF
 blI
 lxz
 lxz
-lxz
+aRa
 rbd
 dGd
 jjS
@@ -113989,7 +114030,7 @@ alc
 alc
 lOf
 alc
-alc
+beX
 aIM
 alc
 alc
@@ -118339,7 +118380,7 @@ fRz
 oAm
 koK
 cOl
-eTY
+ivJ
 awT
 awT
 awT
@@ -128133,7 +128174,7 @@ aSX
 cNm
 rtd
 cNm
-cNm
+pbi
 arM
 bZT
 sfA
