@@ -4,7 +4,7 @@
 		the usual purple stripes being replaced by a unique bright green. It protects the user from fire and acid damage."
 	icon = 'fulp_modules/icons/clothing/obj/plasmaman.dmi'
 	worn_icon = 'fulp_modules/icons/clothing/mob/plasmaman.dmi'
-	icon_state = "signal_tech_envirohelm"
+	icon_state = "signal_tech_envirosuit"
 	inhand_icon_state = null
 
 /obj/item/clothing/head/helmet/space/plasmaman/engineering/signal_tech
