@@ -1,74 +1,89 @@
-/// for [/proc/check_mentor_pings], if there are any admin pings in the msay message, this index in the return list contains a list of mentors to ping
-/// This is a copy paste of ASAY_LINK_PINGED_ADMINS_INDEX
-#define MSAY_LINK_PINGED_MENTORS_INDEX "!pinged_mentors"
-
 //Make this null once Stat panel (Admin tab) is kill.
 GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
-	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
-	if(!is_mentor())
-		to_chat(src, span_danger("Error: Only mentors and administrators may use this command."), confidential = TRUE)
+	if(prefs.muted & MUTE_ADMINHELP)
+		to_chat(src,
+			type = MESSAGE_TYPE_MODCHAT,
+			html = "<span class='danger'>Error: MentorPM: You are muted from Mentorhelps. (muted).</span>",
+			confidential = TRUE)
 		return
-
-	msg = emoji_parse(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN))
+	var/msg = tgui_input_text(src, "Ask a question about game mechanics", "Mentorhelp")
+	//Cleans the input message
 	if(!msg)
 		return
+	//This shouldn't happen, but just in case.
+	if(!mob)
+		return
 
-	var/list/pinged_mentor_clients = check_mentor_pings(msg)
-	if(length(pinged_mentor_clients) && pinged_mentor_clients[MSAY_LINK_PINGED_MENTORS_INDEX])
-		msg = pinged_mentor_clients[MSAY_LINK_PINGED_MENTORS_INDEX]
-		pinged_mentor_clients -= MSAY_LINK_PINGED_MENTORS_INDEX
+	msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
+	var/mentor_msg = "<font color='purple'><span class='mentornotice'><b>MENTORHELP:</b> <b>[key_name_mentor(src, TRUE, FALSE)]</b>: </span><span class='message linkify'>[msg]</span></font>"
+	log_mentor("MENTORHELP: [key_name_mentor(src, null, FALSE, FALSE)]: [msg]")
 
-	for(var/iter_ckey in pinged_mentor_clients)
-		var/client/iter_mentor_client = pinged_mentor_clients[iter_ckey]
-		if(!iter_mentor_client || !iter_mentor_client.is_mentor())
-			continue
-		window_flash(iter_mentor_client)
-		SEND_SOUND(iter_mentor_client.mob, sound('sound/misc/bloop.ogg'))
+	//Send the Mhelp to all Mentors/Admins
+	for(var/client/honked_clients in GLOB.mentors | GLOB.admins)
+		SEND_SOUND(honked_clients, 'sound/items/bikehorn.ogg')
+		to_chat(honked_clients,
+			type = MESSAGE_TYPE_MODCHAT,
+			html = mentor_msg,
+			confidential = TRUE)
 
-	log_mentor("MSAY: [key_name(src)] : [msg]")
-	msg = keywords_lookup(msg)
-	if(holder)
-		msg = "<b><font color = #8A2BE2><span class='prefix'>STAFF:</span> <EM>[key_name(src, include_link = FALSE, include_name = FALSE)]</EM>: <span class='message linkify'>[msg]</span></font></b>"
-	else
-		msg = "<b><font color = #E236D8><span class='prefix'>MENTOR:</span> <EM>[key_name(src, include_link = FALSE, include_name = FALSE)]</EM>: <span class='message linkify'>[msg]</span></font></b>"
-	to_chat(GLOB.admins | GLOB.mentors,
+	//Also show it to person Mhelping
+	to_chat(usr,
 		type = MESSAGE_TYPE_MODCHAT,
-		html = msg,
+		html = "<font color='purple'><span class='mentornotice'>PM to-<b>Mentors</b>:</span> <span class='message linkify'>[msg]</span></font>",
 		confidential = TRUE)
 
-	SSblackbox.record_feedback("tally", "mentor_verb", 1, "Msay") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	GLOB.mentor_requests.mentorhelp(src, msg)
 
-// see /proc/check_asay_links(msg) we just check for mentor_datum instead of holder
-/proc/check_mentor_pings(msg)
-	var/list/msglist = splittext(msg, " ")
-	var/list/mentors_to_ping = list()
+/proc/key_name_mentor(whom, include_link = null, include_name = TRUE, include_follow = TRUE, char_name_only = TRUE)
+	var/mob/user
+	var/client/chosen_client
+	var/key
+	var/ckey
 
-	var/i = 0
-	for(var/word in msglist)
-		i++
-		if(!length(word))
-			continue
-		if(word[1] != "@")
-			continue
-		var/ckey_check = LOWER_TEXT(copytext(word, 2))
-		var/client/client_check = GLOB.directory[ckey_check]
-		if(client_check?.mentor_datum)
-			msglist[i] = "<u>[word]</u>"
-			mentors_to_ping[ckey_check] = client_check
+	if(!whom)
+		return "*null*"
 
-	if(length(mentors_to_ping))
-		mentors_to_ping[MSAY_LINK_PINGED_MENTORS_INDEX] = jointext(msglist, " ")
-		return mentors_to_ping
+	if(istype(whom, /client))
+		chosen_client = whom
+		user = chosen_client.mob
+		key = chosen_client.key
+		ckey = chosen_client.ckey
+	else if(ismob(whom))
+		user = whom
+		chosen_client = user.client
+		key = user.key
+		ckey = user.ckey
+	else if(istext(whom))
+		key = whom
+		ckey = ckey(whom)
+		chosen_client = GLOB.directory[ckey]
+		if(chosen_client)
+			user = chosen_client.mob
+	else
+		return "*invalid*"
 
-///Gives both Mentors & Admins all Mentor verb
-/client/proc/add_mentor_verbs()
-	if(!mentor_datum && !holder)
-		return
-	ASSIGN_GAME_VERB(src, /client, cmd_mentor_say)
-	ASSIGN_GAME_VERB(src, /client, mentor_requests)
+	. = ""
 
-/client/proc/remove_mentor_verbs()
-	UNASSIGN_GAME_VERB(src, /client, cmd_mentor_say)
-	UNASSIGN_GAME_VERB(src, /client, mentor_requests)
+	if(!ckey)
+		include_link = null
 
-#undef MSAY_LINK_PINGED_MENTORS_INDEX
+	if(key)
+		if(include_link != null)
+			. += "<a href='byond://?_src_=mentor;mentor_msg=[ckey];[MentorHrefToken(TRUE)]'>"
+
+		if(chosen_client && chosen_client.holder && chosen_client.holder.fakekey)
+			. += "Administrator"
+		else
+			. += key
+		if(!chosen_client)
+			. += "\[DC\]"
+
+		if(include_link != null)
+			. += "</a>"
+	else
+		. += "*no key*"
+
+	if(include_follow)
+		. += " (<a href='byond://?_src_=mentor;mentor_follow=[REF(user)];[MentorHrefToken(TRUE)]'>F</a>)"
+
+	return .
