@@ -1,6 +1,6 @@
 //Make this null once Stat panel (Admin tab) is kill.
 GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
-
+	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
 	if(prefs.muted & MUTE_ADMINHELP)
 		to_chat(src,
 			type = MESSAGE_TYPE_MODCHAT,

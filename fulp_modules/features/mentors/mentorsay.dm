@@ -2,7 +2,7 @@
 /// This is a copy paste of ASAY_LINK_PINGED_ADMINS_INDEX
 #define MSAY_LINK_PINGED_MENTORS_INDEX "!pinged_mentors"
 
-GAME_VERB_PROC(/client, cmd_mentor_say, "Mentorsay", null, msg as text)
+GAME_VERB_PROC(/client, cmd_mentor_say, "Mentorsay", null)
 	if(!is_mentor())
 		to_chat(src, span_danger("Error: Only mentors and administrators may use this command."), confidential = TRUE)
 		return
