@@ -1,11 +1,12 @@
-GAME_VERB(/client, mentorhelp, "Mentorhelp", "Mentor")
-	VERB_ARG(msg, VERB_ARG_TYPE_TEXT, VERB_ARG_SOURCE_INPUT)
+//Make this null once Stat panel (Admin tab) is kill.
+GAME_VERB(/client, mentorhelp, "Mentorhelp", ADMIN_CATEGORY_MENTOR)
 	if(prefs.muted & MUTE_ADMINHELP)
 		to_chat(src,
 			type = MESSAGE_TYPE_MODCHAT,
 			html = "<span class='danger'>Error: MentorPM: You are muted from Mentorhelps. (muted).</span>",
 			confidential = TRUE)
 		return
+	var/msg = tgui_input_text(src, "Ask a question about game mechanics", "Mentorhelp")
 	//Cleans the input message
 	if(!msg)
 		return
